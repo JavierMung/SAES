@@ -14,6 +14,7 @@ export const Kardex = () => {
   const [materias, setMaterias] = useState([]);
   const [sumar, setSuma] = useState([])
   const [calificacionesETS, setCalificaciones_ets] = useState([])
+  const [promedio,setPromedio] = useState(10)
   const mostrarAlerta = (err) => {
     Swal.fire({
       title: '¡Error!',
@@ -35,15 +36,22 @@ export const Kardex = () => {
         fetch(`https://saes-escom-app.herokuapp.com/students/get-enrolled-ETS?userID=${cookies.get('usuarioId')}`)
           .then(res => res.json())
           .then(data1 => {
-            console.log(data1);
             setCalificaciones_ets(data1)
+            
           })
 
         fetch(`https://saes-escom-app.herokuapp.com/students/career-info?userID=${cookies.get('usuarioId')}`)
           .then(res => res.json())
           .then(data => {
-            console.log(data);
             setMaterias(data)
+            setPromedio(()=>{
+              let cal= 0
+              data.map(calificacion=>{
+                cal+=calificacion.calificacion_final
+              })
+              cal/=data.length
+              return cal.toFixed(2)
+            })
           })
           .then(() => {
             setLoading(false)
@@ -77,7 +85,7 @@ export const Kardex = () => {
               <div className='row'>
                 <div className='col-lg-5'>
                   <p> <span style={{ color: "black", fontWeight: "bolder" }}> Boleta: </span> {cookies.get("usuario")}</p>
-                  <p> <span style={{ color: "black", fontWeight: "bolder" }}> Promedio global: </span> { }</p>
+                  <p> <span style={{ color: "black", fontWeight: "bolder" }}> Promedio global: </span> {promedio }</p>
                   <p> <span style={{ color: "black", fontWeight: "bolder" }}> Carrera: </span> Ing. Sistemas Compuatcionales</p>
                 </div>
 
@@ -98,7 +106,6 @@ export const Kardex = () => {
                 </thead>
                 <tbody className='table-light text-start'>
                   {materias.map((element, index) => {
-                    console.log(calificacionesETS.length > 0);
                     /*return (
                       calificacionesETS.map(materia => {
                         if (materia.materiaETS.materiaId.nombreMateria === element.claveMateriaEstudiante.nombreMateria) {
