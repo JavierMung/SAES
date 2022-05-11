@@ -100,8 +100,8 @@ export const RecuperarContrasena = () => {
                             
 
                             <div className='text-end'>
-                                <NavLink className="me-2" to="/">
-                                    <a type="button" className="btn btn-primary mt-2  ">regresar</a>
+                                <NavLink className="me-2 btn btn-primary mt-2" to="/">
+                                    regresar
                                 </NavLink>
                                 <button type="button" className="btn btn-success mt-2  " onClick={cambiar}>Enviar</button>
                                 {Recuperar ?

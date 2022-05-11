@@ -55,16 +55,17 @@ function CambiarContrasena() {
                 .then((dat) => {
                     if(dat.status==="OK"){
                         CorreoEnviado()
+                        setRegresar(true)
                     }else{
                         mostrarAlerta(dat.detail)
                     }
-
-                    setVerificar("")
+                    setVerificar({verificar:""})
                     setContrasena({token:"",password:""})
-                    setRegresar(true)
                 })
-
-                .catch(err => console.log(err))
+                .catch(err => {
+                    setVerificar("")
+                    setContrasena({token:"",password:""})}
+                    )
         }
     }
     return (<div className='container letra'>
@@ -73,18 +74,17 @@ function CambiarContrasena() {
                 <div className="card shadow-lg  position-absolute top-50 start-50 translate-middle" >
                     <div className="card-body" style={{ width: "500px" }}>
                         <p className="card-text">Contraseña nueva</p>
-                        <input type="password" className="form-control" name={"password"}  onChange={handleChange}/>
+                        <input type="password" value={contrasena.password} className="form-control" name={"password"}  onChange={handleChange}/>
                         <p className="card-text">Confirmar contraseña</p>
-                        <input type="password"  className="form-control" name={"verificar"}  onChange={Verificar}/>
+                        <input type="password" value={verificar.verificar}  className="form-control" name={"verificar"}  onChange={Verificar}/>
                         <p className="card-text">Token</p>
-                        <input className="form-control" name={"token"} onChange={handleChange} type={"text"} />
+                        <input className="form-control" value={contrasena.token} name={"token"} onChange={handleChange} type={"text"} />
                         {regresar?(<><Navigate to={"/"} /></>)
                                     : (<></>)}
-
                         <br />
                         <div className='text-end'>
-                            <NavLink className="me-2" to="/">
-                                <a type="button" className="btn btn-primary mt-2  ">regresar</a>
+                            <NavLink className="me-2 btn btn-primary mt-2" to="/">
+                                regresar
                             </NavLink>
                             <button type="button" className="btn btn-success mt-2" onClick={Editar} >Enviar</button>
 
