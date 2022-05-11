@@ -137,9 +137,9 @@ export const InscribirETS = () => {
   }
 
   const inscribir = async (element, index) => {
-
-    if (!materiasInscritas.find((materia) => materia.idETS === element.idETS)) {
-      if (!inscritos.find((materia) => materia.idETS === element.idETS)) {
+    console.log(element);
+    if (!materiasInscritas.find((materia) => materia.materiaId.nombreMateria === element.materiaId.nombreMateria)) {
+      if (!inscritos.find((materia) => (materia.materiaETS.idETS === element.idETS ||  materia.materiaETS.materiaId.nombreMateria === element.materiaId.nombreMateria))) {
         setInscribir([element, ...materiasInscritas]);
         let a = inscripcion.materias
         a.push(element.idETS)
