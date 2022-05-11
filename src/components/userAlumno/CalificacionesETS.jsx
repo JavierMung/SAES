@@ -20,7 +20,7 @@ export const CalificacionesETS = () => {
   }
   useEffect(async () => {
     try {
-      const respuesta = await fetch(`http://127.0.0.1:8000/students/get-enrolled-ETS?userID=${cookies.get('usuarioId')}`)
+      const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/students/get-enrolled-ETS?userID=${cookies.get('usuarioId')}`)
       const data = await respuesta.json()
       setCalificaciones_ets(data)
       setLoading(false)

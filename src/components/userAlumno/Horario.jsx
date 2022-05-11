@@ -22,7 +22,7 @@ export const Horario = () => {
   }
   useEffect(async () => {
     try {
-      const respuesta = await fetch(`http://127.0.0.1:8000/students/enrolled-subjects?userID=${cookies.get('usuarioId')}`)
+      const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/students/enrolled-subjects?userID=${cookies.get('usuarioId')}`)
       const data = await respuesta.json()
       setDatosPersonales(data)
       sethorarioDias(data)

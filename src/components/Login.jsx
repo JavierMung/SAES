@@ -102,7 +102,7 @@ function App() {
         inputUser.current.classList.add('inputCorrecto')
         try {
           setLoading(true)
-          const res = await fetch('http://127.0.0.1:8000/users/login/',
+          const res = await fetch('https://saes-escom-app.herokuapp.com/users/login/',
             {
               method: 'POST',
               headers: {

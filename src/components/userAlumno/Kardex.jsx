@@ -27,13 +27,13 @@ export const Kardex = () => {
   useEffect(() => {
     try {
      
-      fetch(`http://127.0.0.1:8000/students/get-enrolled-ETS?userID=${cookies.get('usuarioId')}`)
+      fetch(`https://saes-escom-app.herokuapp.com/students/get-enrolled-ETS?userID=${cookies.get('usuarioId')}`)
       .then(res=>res.json())
       .then(data1=>{
         setCalificaciones_ets(data1)
       })
    
-      fetch(`http://127.0.0.1:8000/students/career-info?userID=${cookies.get('usuarioId')}`)
+      fetch(`https://saes-escom-app.herokuapp.com/students/career-info?userID=${cookies.get('usuarioId')}`)
         .then(res => res.json())
         .then(data => {
           console.log(data);

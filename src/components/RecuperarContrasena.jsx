@@ -60,7 +60,7 @@ export const RecuperarContrasena = () => {
 
         if (datos.email !== "") {
             setLoading(true)
-            fetch(`http://127.0.0.1:8000/password-reset/`, {
+            fetch(`https://saes-escom-app.herokuapp.com/password-reset/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

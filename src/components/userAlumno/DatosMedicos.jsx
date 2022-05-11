@@ -58,7 +58,7 @@ export const DatosMedicos = () => {
        
 
             try {
-                const respuesta = await fetch(`http://127.0.0.1:8000/users/update-medical/${cookies.get('usuarioId')}/`,
+                const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/users/update-medical/${cookies.get('usuarioId')}/`,
                     {
                         method: 'PATCH',
                         headers: {

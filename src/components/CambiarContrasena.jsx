@@ -44,7 +44,7 @@ function CambiarContrasena() {
         console.log(contrasena.contrasena);
         console.log(verificar.verificar);
         if(contrasena.password===verificar.verificar){
-            fetch(`http://127.0.0.1:8000/password-reset/confirm/`, {
+            fetch(`https://saes-escom-app.herokuapp.com/password-reset/confirm/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -56,7 +56,7 @@ export const Menu = () => {
 
     const cerrarSesion = async () => {
         try {
-            const res = await fetch('http://127.0.0.1:8000/users/logout/',
+            const res = await fetch('https://saes-escom-app.herokuapp.com/users/logout/',
                 {
                     method: 'POST',
                     headers: {

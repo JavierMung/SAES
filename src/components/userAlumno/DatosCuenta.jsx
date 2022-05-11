@@ -76,7 +76,7 @@ export const DatosCuenta = () => {
 
     const editar = async () => {
         try {
-            const respuesta = await fetch(`http://127.0.0.1:8000/users/modify-password/`,{
+            const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/users/modify-password/`,{
                 method: 'POST',
                 headers: {
                   "Content-Type": "application/json",

@@ -65,7 +65,7 @@ export const DatosPersonales = () => {
     }
     useEffect(async () => {
         try {
-            const respuesta = await fetch(`http://127.0.0.1:8000/users/update-personal/${cookies.get('usuarioId')}`)
+            const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/users/update-personal/${cookies.get('usuarioId')}`)
                 .then(res => res.json())
                 .then(data => {
                     setDatosPersonales(data)

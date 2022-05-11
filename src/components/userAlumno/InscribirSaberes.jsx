@@ -72,7 +72,7 @@ export const InscribirSaberes = () => {
 
   useEffect(async () => {
     try {
-      fetch('http://127.0.0.1:8000/careers/dates-info/SP/')
+      fetch('https://saes-escom-app.herokuapp.com/careers/dates-info/SP/')
         .then((res) => res.json())
         .then(dat => {
           if (dat.concepto === "SP") {
@@ -83,13 +83,13 @@ export const InscribirSaberes = () => {
 
             if ((FechaInicio < fecha && FechaFin > fecha) || (FechaInicio.getTime() == fecha && FechaFin.getTime() == fecha)) {
 
-              fetch(`http://127.0.0.1:8000/students/get-previous-knowledge?userID=${cookies.get('usuarioId')}`)
+              fetch(`https://saes-escom-app.herokuapp.com/students/get-previous-knowledge?userID=${cookies.get('usuarioId')}`)
               .then(res=>res.json())
               .then(data=>{
                 setMaterias(data)
               })
               .then(()=>{
-                fetch(`http://127.0.0.1:8000/students/get-enrolled-previous-knowledge/?userID=${cookies.get('usuarioId')}`)
+                fetch(`https://saes-escom-app.herokuapp.com/students/get-enrolled-previous-knowledge/?userID=${cookies.get('usuarioId')}`)
                 .then(res=>res.json())
                 .then(data2=>{
                   setInscritos(data2)
