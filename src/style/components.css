@@ -1,0 +1,7 @@
+.letra{
+    font-family: 'Amiko', sans-serif;
+}
+
+.color:hover{
+    background-color: tomato;
+}

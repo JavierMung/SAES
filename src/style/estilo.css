@@ -1,0 +1,305 @@
+body {
+  background-image: url('../img/FondoESCOM.png');
+  background-repeat: repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.borde {
+
+  border: 1px solid red;
+}
+
+.cajas:focus {
+  outline: 1px solid #1b4a8b;
+
+}
+
+.acciones {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.login {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 3rem;
+}
+
+.centrar {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.cerrarSesion {
+  color: rgb(0, 0, 0);
+}
+
+.cerrarSesion:hover {
+  background-color: rgb(221, 180, 0);
+
+
+  transition-duration: 200ms;
+}
+
+.datos {
+  position: relative;
+  background-color: #1b4a8b;
+}
+
+.tablasColor {
+  background-color: #1b4a8b;
+  color: whitesmoke;
+  position: sticky;
+
+}
+
+.letra {
+  font-family: 'Inconsolata', monospace;
+
+}
+
+span {
+  color: rgb(255, 255, 255);
+}
+
+.logo {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+  top: -40px;
+
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url("../img/ipn.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #1b4a8b;
+}
+
+.caja {
+  margin-top: 10vh;
+}
+
+.contenido {
+  background: whitesmoke;
+}
+
+.transparente {
+  border-radius: 15px;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  background-color: rgba(246, 246, 246, 0.205);
+  backdrop-filter: blur(1px);
+}
+
+.informacion {
+  border-radius: 15px;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  background-color: rgba(235, 239, 252, 0.339);
+  backdrop-filter: blur(1.5px);
+}
+
+.informacionPersonal {
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: #1b4a8b;
+  height: 100vh;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.informacionPersonalAdmin {
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: #3f0202;
+  height: 100vh;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.foto {
+  background-image: url("../img/foto_perfil.png");
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid whitesmoke;
+  background-size: contain;
+}
+
+.menu {
+  overflow: auto;
+  height: 500px;
+
+  scrollbar-width: thin;
+  /* "auto" or "thin" */
+  scrollbar-color: rgb(49, 49, 49) orrgb(0, 255, 21)
+    /* scroll thumb and track */
+
+}
+
+.inputCorrecto {
+  border: 2px solid rgb(3, 182, 3);
+  outline: none;
+}
+
+.foc:focus {
+  outline: none;
+}
+
+.inputIncorrecto {  
+  border-radius:5px ;
+  border: 1px solid red;
+  outline: none;
+}
+.inputIncorrecto::after{
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-top: 11px;
+  padding-left: 5px;
+  height: 37px;
+  display: block;
+  color: red;
+  font-size: x-small;
+  content: "Campo no valido";
+}
+
+
+.cambio:active {
+  color: whitesmoke
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(75, 12, 2);
+  border-radius: 15px;
+
+}
+
+ul>li:hover {
+  background-color: rgb(15, 72, 226);
+  border-radius: 15px;
+  transition-duration: 200ms;
+  overflow: hidden;
+}
+
+ul>li:active {
+  background-color: rgb(43, 98, 248);
+  transition-duration: 200ms;
+}
+
+/*Calificaciones*/
+.title_calif {
+  font-weight: 800;
+  color: black !important;
+}
+
+.contenedor_datos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.contenedor_datos p {
+  color: black;
+}
+
+.content_carrera {
+  display: flex;
+  justify-content: center;
+}
+
+.select_ets {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.title_header {
+  margin-top: 40px;
+}
+
+.title_header_calif {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.bg_white {
+  background-color: white;
+  color: black;
+}
+
+.text_grey {
+  color: grey !important;
+}
+
+.body_table {
+  background: #0dcaf0 !important;
+}
+
+.table_calificaciones {
+  font-size: 12px;
+  color: black !important;
+}
+
+.table_calificaciones thead {
+  color: black !important;
+  text-align: center;
+}
+
+.table_calificaciones thead tr {
+  text-align: center;
+}
+
+.table_calificaciones tbody tr:nth-child(2n-1) {
+  background-color: #1b4a8b !important;
+  color: white;
+}
+
+.content_table {
+  color: black !important;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 1000px) {
+  .caja {
+    margin-top: 80px;
+  }
+
+  .login {
+
+    font-family: 'League Spartan', sans-serif;
+    font-size: 3rem;
+
+  }
+
+  .informacionPersonal {
+    position: absolute;
+    left: -5000px;
+  }
+
+  .botonMenu{
+    background-color: #3f0202;
+  }
+
+  .botonMenu:hover{
+    background-color: #0dcaf0;
+  }
+}
