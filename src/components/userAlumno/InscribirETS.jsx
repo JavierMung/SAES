@@ -4,9 +4,10 @@ import '../../style/estilo.css'
 import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons'
 import Cookies from 'universal-cookie';
 import { Navigate } from "react-router-dom";
-
+import { useNavigate } from 'react-router-dom';
 export const InscribirETS = () => {
-
+  
+  const navigate = useNavigate();
   const Swal = require('sweetalert2')
   const cookies = new Cookies();
   const [loading, setLoading] = useState(true)

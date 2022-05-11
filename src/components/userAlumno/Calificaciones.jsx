@@ -8,6 +8,7 @@ export const Calificaciones = () => {
   const cookies = new Cookies();
   const Swal = require('sweetalert2')
   const [loading, setLoading] = useState(true)
+  const navigate = useNavigate();
 
 
   const [materias, setMaterias] = useState([]);

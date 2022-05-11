@@ -5,7 +5,9 @@ import LineChart from '../../Graficos/Lineas'
 import Donut from '../../Graficos/Donut'
 import DonutKardex from '../../Graficos/DonutKardex'
 import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
 export const Kardex = () => {
+  const navigate = useNavigate();
   const cookies = new Cookies();
   const Swal = require('sweetalert2')
   const [loading, setLoading] = useState(true)

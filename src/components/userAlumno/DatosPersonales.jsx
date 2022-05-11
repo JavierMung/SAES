@@ -2,8 +2,9 @@ import React, { useEffect, useState, useRef } from 'react'
 import '../../style/estilo.css'
 import Cookies from "universal-cookie";
 import useDomiiclio from '../../data/useDomicilio';
-
+import { useNavigate } from 'react-router-dom';
 export const DatosPersonales = () => {
+    const navigate = useNavigate();
     const cookies = new Cookies()
     const Swal = require('sweetalert2')
     const [loading, setLoading] = useState(true)

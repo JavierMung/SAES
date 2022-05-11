@@ -1,14 +1,17 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
 
 export const CalificacionesETS = () => {
+  const navigate = useNavigate();
   const cookies = new Cookies();
   const Swal = require('sweetalert2')
   const [loading, setLoading] = useState(true)
   const [calificaciones_ets, setCalificaciones_ets] = useState([
 
   ]);
+
   const mostrarAlerta = (err) => {
     Swal.fire({
       title: '¡Error!',

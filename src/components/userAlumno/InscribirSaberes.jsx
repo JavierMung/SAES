@@ -5,7 +5,9 @@ import { Navigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons'
 import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
 export const InscribirSaberes = () => {
+  const navigate = useNavigate();
   const Swal = require('sweetalert2')
   const [fecha, setFecha] = useState(new Date)
   const cookies = new Cookies();

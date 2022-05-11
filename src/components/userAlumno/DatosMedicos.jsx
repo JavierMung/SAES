@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
 import '../../style/estilo.css'
 import Cookies from "universal-cookie";
-
+import { useNavigate } from 'react-router-dom';
 export const DatosMedicos = () => {
+    const navigate = useNavigate();
     const cookies = new Cookies()
     const Swal = require('sweetalert2')
     const [loading, setLoading] = useState(true)
