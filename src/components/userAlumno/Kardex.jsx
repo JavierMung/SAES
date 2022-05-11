@@ -98,40 +98,19 @@ export const Kardex = () => {
                 </thead>
                 <tbody className='table-light text-start'>
                   {materias.map((element, index) => {
-                    console.log(calificacionesETS.length>0);
-                    if (calificacionesETS<=0) {
-                      return (
-                        <tr key={index}>
-                          <td>{element.claveMateriaEstudiante.idMateria}</td>
-                          <td style={{ fontWeight: "bold" }}>{element.claveMateriaEstudiante.nombreMateria}</td>
-                          <td>{element.calificacion_final}</td>
-                          <th>{element.claveMateriaEstudiante.semestre}</th>
-                          <th>{element.fechaCurso}</th>
-                        </tr>)
-                    } else {
-                      return (
-
-                        calificacionesETS.map(materia => {
-                          if (materia.materiaETS.materiaId.nombreMateria === element.claveMateriaEstudiante.nombreMateria) {
-                            if (materia.calificacion > element.calificacion_final) {
-                              return (
-                                <tr key={index}>
-                                  <td>{element.claveMateriaEstudiante.idMateria}</td>
-                                  <td style={{ fontWeight: "bold" }}>{element.claveMateriaEstudiante.nombreMateria}</td>
-                                  <td>{materia.calificacion}</td>
-                                  <th>{element.claveMateriaEstudiante.semestre}</th>
-                                  <th>{element.fechaCurso}</th>
-                                </tr>)
-                            } else {
-                              return (
-                                <tr key={index}>
-                                  <td>{element.claveMateriaEstudiante.idMateria}</td>
-                                  <td style={{ fontWeight: "bold" }}>{element.claveMateriaEstudiante.nombreMateria}</td>
-                                  <td>{element.calificacion_final}</td>
-                                  <th>{element.claveMateriaEstudiante.semestre}</th>
-                                  <th>{element.fechaCurso}</th>
-                                </tr>)
-                            }
+                    console.log(calificacionesETS.length > 0);
+                    /*return (
+                      calificacionesETS.map(materia => {
+                        if (materia.materiaETS.materiaId.nombreMateria === element.claveMateriaEstudiante.nombreMateria) {
+                          if (materia.calificacion > element.calificacion_final) {
+                            return (
+                              <tr key={index}>
+                                <td>{element.claveMateriaEstudiante.idMateria}</td>
+                                <td style={{ fontWeight: "bold" }}>{element.claveMateriaEstudiante.nombreMateria}</td>
+                                <td>{materia.calificacion}</td>
+                                <th>{element.claveMateriaEstudiante.semestre}</th>
+                                <th>{element.fechaCurso}</th>
+                              </tr>)
                           } else {
                             return (
                               <tr key={index}>
@@ -142,13 +121,30 @@ export const Kardex = () => {
                                 <th>{element.fechaCurso}</th>
                               </tr>)
                           }
-
+                        } else {
+                          return (
+                            <tr key={index}>
+                              <td>{element.claveMateriaEstudiante.idMateria}</td>
+                              <td style={{ fontWeight: "bold" }}>{element.claveMateriaEstudiante.nombreMateria}</td>
+                              <td>{element.calificacion_final}</td>
+                              <th>{element.claveMateriaEstudiante.semestre}</th>
+                              <th>{element.fechaCurso}</th>
+                            </tr>)
                         }
-                        )
+
+                      }
                       )
-                    }
-
-
+                    )*/
+                    return (
+                      
+                                           
+                      <tr key={index}>
+                        <td>{element.claveMateriaEstudiante.idMateria}</td>
+                        <td style={{ fontWeight: "bold" }}>{element.claveMateriaEstudiante.nombreMateria}</td>
+                        <td>{element.calificacion_final}</td>
+                        <th>{element.claveMateriaEstudiante.semestre}</th>
+                        <th>{element.fechaCurso}</th>
+                      </tr>)
                   })}
                 </tbody>
               </table>

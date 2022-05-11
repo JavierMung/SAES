@@ -90,13 +90,15 @@ export const InscribirSaberes = () => {
 
               fetch(`https://saes-escom-app.herokuapp.com/students/get-previous-knowledge?userID=${cookies.get('usuarioId')}`)
               .then(res=>res.json())
-              .then(data=>{               
+              .then(data=>{  
+                console.log(data);  
                 setMaterias(data)
               })
               .then(()=>{
                 fetch(`https://saes-escom-app.herokuapp.com/students/get-enrolled-previous-knowledge/?userID=${cookies.get('usuarioId')}`)
                 .then(res=>res.json())
                 .then(data2=>{
+                  console.log(data2);
                   setInscritos(data2)
                   setLoading(false)
 
@@ -140,8 +142,8 @@ export const InscribirSaberes = () => {
   }
 
   const inscribir = async (element, index) => {
-    if (!materiasInscritas.find((materia) => materia.idSaberes === element.idSaberes)) {
-      if (!inscritos.find((materia) => materia.materiaSaberes.idSaberes === element.idSaberes)) {
+    if (!materiasInscritas.find((materia) => materia.materiaId.nombreMateria === element.materiaId.nombreMateria)) {
+      if (!inscritos.find((materia) => materia.materiaSaberes.materiaId.nombreMateria === element.materiaId.nombreMateria)) {
 
         setInscribir([element, ...materiasInscritas]);
         setInscripcion({ ...inscripcion, saberes: [].concat(element.idSaberes) })
@@ -189,7 +191,7 @@ export const InscribirSaberes = () => {
               <div className="card-text">
                 <div className='container-lg text-dark  rounded '>
                   <h4 className='pt-2'>Inscribe tus examenes</h4>
-
+                  <div style={{ backgroundColor: "transparent", height: "30vh", overflowY: "scroll" }}>
                   <table className="table  rounded shadow-lg">
                     <thead className='tablasColor'>
                       <tr>
@@ -218,6 +220,7 @@ export const InscribirSaberes = () => {
 
                     </tbody>
                   </table>
+                  </div>
                 </div>
 
                 <div className='container-lg '>
