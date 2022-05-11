@@ -73,9 +73,9 @@ function CambiarContrasena() {
                 <div className="card shadow-lg  position-absolute top-50 start-50 translate-middle" >
                     <div className="card-body" style={{ width: "500px" }}>
                         <p className="card-text">Contraseña nueva</p>
-                        <input className="form-control" name={"password"} type={"text"} onChange={handleChange}/>
+                        <input className="form-control" name={"password"} type={"password"} onChange={handleChange}/>
                         <p className="card-text">Confirmar contraseña</p>
-                        <input className="form-control" name={"verificar"} type={"text"}  onChange={Verificar}/>
+                        <input className="form-control" name={"verificar"} type={"password"}  onChange={Verificar}/>
                         <p className="card-text">Token</p>
                         <input className="form-control" name={"token"} onChange={handleChange} type={"text"} />
                         {regresar?(<><Navigate to={"/"} /></>)
