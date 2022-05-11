@@ -2,14 +2,14 @@ import React, { useState, useRef, useEffect } from 'react'
 import '../style/estilo.css'
 import { Navigate, NavLink } from "react-router-dom";
 function CambiarContrasena() {
-    const[contrasena, setContrasena] = useState({
-        token : "",
-        password : ""
-       })
+    const [contrasena, setContrasena] = useState({
+        token: "",
+        password: ""
+    })
     const [verificar, setVerificar] = useState({
-        verificar:""
-    })   
-    const[regresar, setRegresar] = useState(false)
+        verificar: ""
+    })
+    const [regresar, setRegresar] = useState(false)
 
     const Swal = require('sweetalert2')
 
@@ -32,18 +32,16 @@ function CambiarContrasena() {
         })
     }
 
-    const handleChange = (event)=>{
-        setContrasena({...contrasena, [event.target.name]: event.target.value})
+    const handleChange = (event) => {
+        setContrasena({ ...contrasena, [event.target.name]: event.target.value })
     }
-    const Verificar = (event)=>{
+    const Verificar = (event) => {
         console.log(verificar);
-        setVerificar({...verificar,verificar:event.target.value})
+        setVerificar({ ...verificar, verificar: event.target.value })
     }
 
-    const Editar = ()=>{
-        console.log(contrasena.password);
-        console.log(verificar.verificar);
-        if(contrasena.password===verificar.verificar){
+    const Editar = () => {
+        if (contrasena.password === verificar.verificar) {
             fetch(`https://saes-escom-app.herokuapp.com/password-reset/confirm/`, {
                 method: "POST",
                 headers: {
@@ -53,20 +51,26 @@ function CambiarContrasena() {
             })
                 .then(res => res.json())
                 .then((dat) => {
-                    if(dat.status==="OK"){
+                    if (dat.status === "OK") {
                         CorreoEnviado()
                         setRegresar(true)
-                    }else{
+                    } else {
                         mostrarAlerta(dat.detail)
+
                     }
-                    setVerificar({verificar:""})
-                    setContrasena({token:"",password:""})
+                    setVerificar({ verificar: "" })
+                    setContrasena({ token: "", password: "" })
                 })
                 .catch(err => {
                     mostrarAlerta(err)
                     setVerificar("")
-                    setContrasena({token:"",password:""})}
-                    )
+                    setContrasena({ token: "", password: "" })
+                }
+                )
+        } else {
+            mostrarAlerta("La contraseña nueva no coincide")
+            setVerificar({verificar:""})
+            setContrasena({ token: "", password: "" })
         }
     }
     return (<div className='container letra'>
@@ -75,13 +79,13 @@ function CambiarContrasena() {
                 <div className="card shadow-lg  position-absolute top-50 start-50 translate-middle" >
                     <div className="card-body" style={{ width: "500px" }}>
                         <p className="card-text">Contraseña nueva</p>
-                        <input type="password" value={contrasena.password} className="form-control" name={"password"}  onChange={handleChange}/>
+                        <input type="password" value={contrasena.password} className="form-control" name={"password"} onChange={handleChange} />
                         <p className="card-text">Confirmar contraseña</p>
-                        <input type="password" value={verificar.verificar}  className="form-control" name={"verificar"}  onChange={Verificar}/>
+                        <input type="password" value={verificar.verificar} className="form-control" name={"verificar"} onChange={Verificar} />
                         <p className="card-text">Token</p>
                         <input className="form-control" value={contrasena.token} name={"token"} onChange={handleChange} type={"text"} />
-                        {regresar?(<><Navigate to={"/"} /></>)
-                                    : (<></>)}
+                        {regresar ? (<><Navigate to={"/"} /></>)
+                            : (<></>)}
                         <br />
                         <div className='text-end'>
                             <NavLink className="me-2 btn btn-primary mt-2" to="/">
