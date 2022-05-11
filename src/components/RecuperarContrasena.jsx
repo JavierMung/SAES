@@ -50,7 +50,7 @@ export const RecuperarContrasena = () => {
     const CorreoEnviado = (err) => {
         Swal.fire({
             title: '¡Hecho!',
-            text: "Se envio el token a tu correo",
+            text: "Se envió el token a tu correo",
             icon: 'success',
             confirmButtonText: 'aceptar',
             confirmButtonColor: "#00b894"

@@ -190,7 +190,7 @@ function App() {
                 <div className="col-6 mb-2 ">
                   <div className="form-floating mb-3">
                     <input ref={inputPassword} value={usuario.password} className="form-control cajas centrar" id="floatingInput" placeholder="eje. 2019630211" name={"password"} type={"password"} onChange={cambiarPassword}></input>
-                    <label htmlFor="floatingInput">Constraseña</label>
+                    <label htmlFor="floatingInput">Contraseña</label>
                   </div>
                 </div>
                 <div className="col-12 mb-2">

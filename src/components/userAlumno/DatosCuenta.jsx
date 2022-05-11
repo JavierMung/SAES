@@ -16,6 +16,19 @@ export const DatosCuenta = () => {
         contrasenia_nueva: ""
 
     })
+    const mostrarAlerta = (err) => {
+        Swal.fire({
+          title: '¡Error!',
+          text: err,
+          icon: 'error',
+          confirmButtonText: 'aceptar',
+          confirmButtonColor: "#00b894" 
+        })
+      }
+
+    const [confirmar, setConfirmar] = useState(
+        {confirmar:""})
+
     useEffect(() => {
         if (!cookies.get('token')) {
             navigate('/');
@@ -24,6 +37,7 @@ export const DatosCuenta = () => {
             setLoading(false)
         }
     }, [])
+
     const error = (err) => {
         Swal.fire({
             title: '!Error!',
@@ -74,10 +88,14 @@ export const DatosCuenta = () => {
 
     }
 
-    const editar = async () => {
+    useEffect(()=>{
         if (!cookies.get('token')) {
             navigate('/');
-        } else {
+        }
+    },[])
+
+    const editar = async () => {
+        if(confirmar.confirmar===datos.contrasenia_nueva){
             try {
                 const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/users/modify-password/`, {
                     method: 'POST',
@@ -93,7 +111,9 @@ export const DatosCuenta = () => {
             } catch (err) {
                 error(err)
             }
-        }
+        }else{
+            mostrarAlerta("La contraseña no es la misma")
+        }      
     }
 
     return (<>
@@ -119,12 +139,16 @@ export const DatosCuenta = () => {
                             <div className='mt-2 text-start ms-4 '><h1 className='border-bottom pb-3'>CAMBIAR CONTRASEÑA </h1></div>
 
                             <div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Contrseña actual</span>
-                                <input type="text" name={"contrasenia_actual"} value={datos.contrasenia_actual} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
+                                <span className="input-group-text" id="basic-addon1">Contraseña actual</span>
+                                <input type="password" name={"contrasenia_actual"} value={datos.contrasenia_actual} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
                             </div>
                             <div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Contrseña nueva</span>
-                                <input type="text" name={"contrasenia_nueva"} value={datos.contrasenia_nueva} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
+                                <span className="input-group-text" id="basic-addon1">Contraseña nueva</span>
+                                <input type="password" name={"contrasenia_nueva"} value={datos.contrasenia_nueva} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
+                            </div>
+                            <div className="input-group mb-3">
+                                <span className="input-group-text" id="basic-addon1">Contraseña nueva</span>
+                                <input type="password" name={"contrasenia_nueva"} value={confirmar.confirmar} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
                             </div>
 
                         </div>
