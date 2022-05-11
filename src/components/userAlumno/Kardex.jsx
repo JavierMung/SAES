@@ -20,38 +20,39 @@ export const Kardex = () => {
       text: err,
       icon: 'error',
       confirmButtonText: 'aceptar',
-      confirmButtonColor: "#00b894" 
+      confirmButtonColor: "#00b894"
     })
   }
 
-  
+
 
   useEffect(() => {
     if (!cookies.get('token')) {
       navigate('/');
-  }else{
-    try {
-     
-      fetch(`https://saes-escom-app.herokuapp.com/students/get-enrolled-ETS?userID=${cookies.get('usuarioId')}`)
-      .then(res=>res.json())
-      .then(data1=>{
-        setCalificaciones_ets(data1)
-      })
-   
-      fetch(`https://saes-escom-app.herokuapp.com/students/career-info?userID=${cookies.get('usuarioId')}`)
-        .then(res => res.json())
-        .then(data => {
-          console.log(data);
-          setMaterias(data)
-        })
-        .then(() => {
-          setLoading(false)
-        })
+    } else {
+      try {
 
-    } catch (err) {
-      mostrarAlerta(err)
+        fetch(`https://saes-escom-app.herokuapp.com/students/get-enrolled-ETS?userID=${cookies.get('usuarioId')}`)
+          .then(res => res.json())
+          .then(data1 => {
+            console.log(data1);
+            setCalificaciones_ets(data1)
+          })
+
+        fetch(`https://saes-escom-app.herokuapp.com/students/career-info?userID=${cookies.get('usuarioId')}`)
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            setMaterias(data)
+          })
+          .then(() => {
+            setLoading(false)
+          })
+
+      } catch (err) {
+        mostrarAlerta(err)
+      }
     }
-  }
 
 
   }, [])
@@ -76,7 +77,7 @@ export const Kardex = () => {
               <div className='row'>
                 <div className='col-lg-5'>
                   <p> <span style={{ color: "black", fontWeight: "bolder" }}> Boleta: </span> 2019630211</p>
-                  <p> <span style={{ color: "black", fontWeight: "bolder" }}> Promedio global: </span> {}</p>
+                  <p> <span style={{ color: "black", fontWeight: "bolder" }}> Promedio global: </span> { }</p>
                   <p> <span style={{ color: "black", fontWeight: "bolder" }}> Carrera: </span> Ing. Sistemas Compuatcionales</p>
                 </div>
 
@@ -97,43 +98,57 @@ export const Kardex = () => {
                 </thead>
                 <tbody className='table-light text-start'>
                   {materias.map((element, index) => {
-                    return (                                           
-                    calificacionesETS.map(materia=>{
-                      if(materia.materiaETS.materiaId.nombreMateria === element.claveMateriaEstudiante.nombreMateria){
-                        if(materia.calificacion>element.calificacion_final){
-                          return(
-                            <tr key={index}>
-                            <td>{element.claveMateriaEstudiante.idMateria}</td>
-                            <td style={{ fontWeight: "bold" }}>{element.claveMateriaEstudiante.nombreMateria}</td>
-                            <td>{materia.calificacion}</td>
-                            <th>{element.claveMateriaEstudiante.semestre}</th>
-                            <th>{element.fechaCurso}</th>
-                          </tr>)
-                        }else{
-                          return(
-                          <tr key={index}>
+                    console.log(calificacionesETS.length>0);
+                    if (calificacionesETS<=0) {
+                      return (
+                        <tr key={index}>
                           <td>{element.claveMateriaEstudiante.idMateria}</td>
                           <td style={{ fontWeight: "bold" }}>{element.claveMateriaEstudiante.nombreMateria}</td>
                           <td>{element.calificacion_final}</td>
                           <th>{element.claveMateriaEstudiante.semestre}</th>
                           <th>{element.fechaCurso}</th>
                         </tr>)
+                    } else {
+                      return (
+
+                        calificacionesETS.map(materia => {
+                          if (materia.materiaETS.materiaId.nombreMateria === element.claveMateriaEstudiante.nombreMateria) {
+                            if (materia.calificacion > element.calificacion_final) {
+                              return (
+                                <tr key={index}>
+                                  <td>{element.claveMateriaEstudiante.idMateria}</td>
+                                  <td style={{ fontWeight: "bold" }}>{element.claveMateriaEstudiante.nombreMateria}</td>
+                                  <td>{materia.calificacion}</td>
+                                  <th>{element.claveMateriaEstudiante.semestre}</th>
+                                  <th>{element.fechaCurso}</th>
+                                </tr>)
+                            } else {
+                              return (
+                                <tr key={index}>
+                                  <td>{element.claveMateriaEstudiante.idMateria}</td>
+                                  <td style={{ fontWeight: "bold" }}>{element.claveMateriaEstudiante.nombreMateria}</td>
+                                  <td>{element.calificacion_final}</td>
+                                  <th>{element.claveMateriaEstudiante.semestre}</th>
+                                  <th>{element.fechaCurso}</th>
+                                </tr>)
+                            }
+                          } else {
+                            return (
+                              <tr key={index}>
+                                <td>{element.claveMateriaEstudiante.idMateria}</td>
+                                <td style={{ fontWeight: "bold" }}>{element.claveMateriaEstudiante.nombreMateria}</td>
+                                <td>{element.calificacion_final}</td>
+                                <th>{element.claveMateriaEstudiante.semestre}</th>
+                                <th>{element.fechaCurso}</th>
+                              </tr>)
+                          }
+
                         }
-                      }else{
-                        return(
-                          <tr key={index}>
-                          <td>{element.claveMateriaEstudiante.idMateria}</td>
-                          <td style={{ fontWeight: "bold" }}>{element.claveMateriaEstudiante.nombreMateria}</td>
-                          <td>{element.calificacion_final}</td>
-                          <th>{element.claveMateriaEstudiante.semestre}</th>
-                          <th>{element.fechaCurso}</th>
-                        </tr>)
-                      }
-                        
-                      }
-                    )
-                    )
-                    
+                        )
+                      )
+                    }
+
+
                   })}
                 </tbody>
               </table>
