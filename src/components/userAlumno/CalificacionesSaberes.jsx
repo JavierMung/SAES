@@ -75,8 +75,6 @@ export const CalificacionesSaberes = () => {
                                         </tbody>
                                     </table>
                                 </div>
-
-                                <div className='text-end '><button type="button" className="btn btn-success">Imprimir</button></div>
                             </div>
                         </div>
                     </div>

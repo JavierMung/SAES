@@ -90,7 +90,7 @@ export const InscribirSaberes = () => {
 
               fetch(`https://saes-escom-app.herokuapp.com/students/get-previous-knowledge?userID=${cookies.get('usuarioId')}`)
               .then(res=>res.json())
-              .then(data=>{
+              .then(data=>{               
                 setMaterias(data)
               })
               .then(()=>{
@@ -121,7 +121,7 @@ export const InscribirSaberes = () => {
       mostrarAlerta()
     } else {
       try {
-        const res = await fetch('http://127.0.0.1:8000/students/register-previous-knowledge/', {
+        const res = await fetch('https://saes-escom-app.herokuapp.com/students/register-previous-knowledge/', {
           method: 'POST',
           headers: {
             "Content-Type": "application/json",
