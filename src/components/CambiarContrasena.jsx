@@ -41,7 +41,7 @@ function CambiarContrasena() {
     }
 
     const Editar = ()=>{
-        console.log(contrasena.contrasena);
+        console.log(contrasena.password);
         console.log(verificar.verificar);
         if(contrasena.password===verificar.verificar){
             fetch(`https://saes-escom-app.herokuapp.com/password-reset/confirm/`, {
@@ -63,6 +63,7 @@ function CambiarContrasena() {
                     setContrasena({token:"",password:""})
                 })
                 .catch(err => {
+                    mostrarAlerta(err)
                     setVerificar("")
                     setContrasena({token:"",password:""})}
                     )
