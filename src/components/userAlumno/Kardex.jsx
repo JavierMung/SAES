@@ -25,6 +25,9 @@ export const Kardex = () => {
   
 
   useEffect(() => {
+    if (!cookies.get('token')) {
+      navigate('/');
+  }else{
     try {
      
       fetch(`https://saes-escom-app.herokuapp.com/students/get-enrolled-ETS?userID=${cookies.get('usuarioId')}`)
@@ -46,7 +49,7 @@ export const Kardex = () => {
     } catch (err) {
       mostrarAlerta(err)
     }
-
+  }
 
 
   }, [])

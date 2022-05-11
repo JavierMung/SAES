@@ -22,6 +22,9 @@ export const CalificacionesSaberes = () => {
         })
     }
     useEffect(async () => {
+        if (!cookies.get('token')) {
+            navigate('/');
+        }else{
         try {
             const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/students/get-enrolled-previous-knowledge/?userID=${cookies.get('usuarioId')}`)
             const data = await respuesta.json()
@@ -30,6 +33,7 @@ export const CalificacionesSaberes = () => {
         } catch (err) {
             mostrarAlerta(err)
         }
+    }
     }, [])
 
     

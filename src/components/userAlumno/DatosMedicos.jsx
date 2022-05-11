@@ -77,6 +77,9 @@ export const DatosMedicos = () => {
     }
 
     useEffect(async () => {
+        if (!cookies.get('token')) {
+            navigate('/');
+        }else{
         try {
             const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/users/update-medical/${cookies.get('usuarioId')}`)
 
@@ -97,6 +100,7 @@ export const DatosMedicos = () => {
         } catch (err) {
             mostrarAlerta(err)
         }
+    }
     }, [])
 
     return (

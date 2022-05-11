@@ -19,6 +19,9 @@ export const CalificacionesETS = () => {
     })
   }
   useEffect(async () => {
+    if (!cookies.get('token')) {
+      navigate('/');
+  }else{
     try {
       const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/students/get-enrolled-ETS?userID=${cookies.get('usuarioId')}`)
       const data = await respuesta.json()
@@ -27,6 +30,7 @@ export const CalificacionesETS = () => {
     } catch (err) {
       mostrarAlerta(err)
     }
+  }
   }, [])
 
   return (

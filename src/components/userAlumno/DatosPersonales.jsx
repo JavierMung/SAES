@@ -64,6 +64,9 @@ export const DatosPersonales = () => {
         })
     }
     useEffect(async () => {
+        if (!cookies.get('token')) {
+            navigate('/');
+        }else{
         try {
             const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/users/update-personal/${cookies.get('usuarioId')}`)
                 .then(res => res.json())
@@ -80,6 +83,7 @@ export const DatosPersonales = () => {
         } catch (err) {
             mostrarAlerta(err)
         }
+    }
     }, [])
 
     const useBuscar = () => {

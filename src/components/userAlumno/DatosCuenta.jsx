@@ -26,30 +26,30 @@ export const DatosCuenta = () => {
     }, [])
     const error = (err) => {
         Swal.fire({
-          title: '!Error!',
-          text: err,
-          icon: 'warning',
-          confirmButtonText: 'aceptar',
-          confirmButtonColor: "#00b894" 
+            title: '!Error!',
+            text: err,
+            icon: 'warning',
+            confirmButtonText: 'aceptar',
+            confirmButtonColor: "#00b894"
         })
-      }
-    
-    
-      const exito = () => {
+    }
+
+
+    const exito = () => {
         Swal.fire({
-          title: '!Exito!',
-          text: "Contraseña cambiada correctamente",
-          icon: 'success',
-          confirmButtonText: 'aceptar',
-          confirmButtonColor: "#00b894" 
+            title: '!Exito!',
+            text: "Contraseña cambiada correctamente",
+            icon: 'success',
+            confirmButtonText: 'aceptar',
+            confirmButtonColor: "#00b894"
         })
-      }
+    }
     const terminarAlerta = () => {
         Swal.fire({
             title: '¿Seguro que desea cambiar la contraseña?',
             showDenyButton: true,
             confirmButtonText: 'Si',
-            confirmButtonColor: "#00b894" ,
+            confirmButtonColor: "#00b894",
             denyButtonText: `Cancelar`,
         }).then((result) => {
             if (result.isConfirmed) {
@@ -60,8 +60,8 @@ export const DatosCuenta = () => {
                     text: "Los cambios no fueron guardados",
                     icon: 'warning',
                     confirmButtonText: 'aceptar',
-                    confirmButtonColor: "#00b894" 
-                  })
+                    confirmButtonColor: "#00b894"
+                })
             }
         })
     }
@@ -75,22 +75,25 @@ export const DatosCuenta = () => {
     }
 
     const editar = async () => {
-        try {
-            const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/users/modify-password/`,{
-                method: 'POST',
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(datos)
-              })
-              if(respuesta.status!==200){
-                error(respuesta.statusText)
-              }else exito();
+        if (!cookies.get('token')) {
+            navigate('/');
+        } else {
+            try {
+                const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/users/modify-password/`, {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(datos)
+                })
+                if (respuesta.status !== 200) {
+                    error(respuesta.statusText)
+                } else exito();
 
-        } catch (err) {
-            error(err)
+            } catch (err) {
+                error(err)
+            }
         }
-
     }
 
     return (<>
@@ -121,7 +124,7 @@ export const DatosCuenta = () => {
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1">Contrseña nueva</span>
-                                <input type="text" name={"contrasenia_nueva"} value={datos.contrasenia_nueva} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange}  />
+                                <input type="text" name={"contrasenia_nueva"} value={datos.contrasenia_nueva} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
                             </div>
 
                         </div>

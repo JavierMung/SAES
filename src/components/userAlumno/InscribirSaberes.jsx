@@ -71,6 +71,9 @@ export const InscribirSaberes = () => {
   }
 
   useEffect(async () => {
+    if (!cookies.get('token')) {
+      navigate('/');
+  }else{
     try {
       fetch('https://saes-escom-app.herokuapp.com/careers/dates-info/SP/')
         .then((res) => res.json())
@@ -107,6 +110,7 @@ export const InscribirSaberes = () => {
     } catch (err) {
       mostrarAlerta(err)
     }
+  }
   }, [])
 
   const terminarProceso = async () => {

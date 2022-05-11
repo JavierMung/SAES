@@ -72,6 +72,9 @@ export const InscribirETS = () => {
   }
 
   useEffect(async () => {
+    if (!cookies.get('token')) {
+      navigate('/');
+  }else{
     try {
       fetch('https://saes-escom-app.herokuapp.com/careers/dates-info/ETS/')
         .then((res) => res.json())
@@ -107,6 +110,7 @@ export const InscribirETS = () => {
     } catch (err) {
       mostrarAlerta(err)
     }
+  }
   }, [])
 
   const terminarProceso = async () => {

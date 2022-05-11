@@ -21,6 +21,9 @@ export const Horario = () => {
     })
   }
   useEffect(async () => {
+    if (!cookies.get('token')) {
+      navigate('/');
+  }else{
     try {
       const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/students/enrolled-subjects?userID=${cookies.get('usuarioId')}`)
       const data = await respuesta.json()
@@ -31,6 +34,7 @@ export const Horario = () => {
     } catch (err) {
       mostrarAlerta(err)
     }
+  }
   }, [])
 
   const [horarioDias, sethorarioDias] = useState([
