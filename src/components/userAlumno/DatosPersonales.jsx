@@ -27,7 +27,7 @@ export const DatosPersonales = () => {
     const [datosDomicilio, setDatosDomicilio] = useState([])
     const [mostrar,setMostrar] = useState(true)
     const [value, setValue] = useState("")
-
+    const [cp, setCP] = useState(true)
     const inputNumeroE = useRef(null)
     const inputNumeroI = useRef(null)
     const codigoPostal = useRef(null)
@@ -97,7 +97,7 @@ export const DatosPersonales = () => {
 
         console.log(value);
 
-        if (permitir) {
+        if (permitir && cp) {
 
             try {
                 /* setDatosPersonales({ ...datosPersonales, estado: datosDomicilio[0].response.estado, alcaldia: datosDomicilio[0].response.municipio })*/
@@ -124,6 +124,7 @@ export const DatosPersonales = () => {
 
 
     const handleChange = (event) => {
+
         if (event.target.name === "numeroExterior") {
             if (isNaN(event.target.value)) {
                 inputNumeroE.current.classList.add('inputIncorrecto')
@@ -143,22 +144,24 @@ export const DatosPersonales = () => {
             }
 
         } else if (event.target.name === "codigoPostal") {
-            if (isNaN(event.target.value)) {
+            setCP(false)
+           
+            if (isNaN(event.target.value) ) {
                 codigoPostal.current.classList.add('inputIncorrecto')
                 setPermitir(false)
             } else {
                 console.log(event.target.value.length);
-                if (event.target.value.length !== 5) {
+                if (event.target.value.length !== 5 ) {
                     codigoPostal.current.classList.add('inputIncorrecto')
                     setPermitir(false)
-                } else {
-
+                } else {                 
                     codigoPostal.current.classList.remove('inputIncorrecto')
                     setPermitir(true)
                 }
             }
+
         } else if (event.target.name === "celular") {
-            if (event.target.value.length !== 10 || event.target.value.substr(0, 2) != '55') {
+            if (event.target.value.length !== 10 || event.target.value.substr(0, 2) != '55' || event.target.value.isNaN) {
                 celular.current.classList.add('inputIncorrecto')
                 setPermitir(false)
             } else {
@@ -223,15 +226,16 @@ export const DatosPersonales = () => {
                                 <button className='btn btn-primary' onClick={() => {
                                     if (permitir) {
                                       
-                                            fetch(`https://api.copomex.com/query/info_cp/${encodeURI(datosPersonales.codigoPostal)}?token=700a3644-4d25-4051-a13e-87c1e8642127`)
+                                            fetch(`https://api.copomex.com/query/info_cp/${encodeURI(datosPersonales.codigoPostal)}?token=db62aefa-a4ad-4090-8b3b-e252b817981a`)
                                                 .then(res => res.json())
                                                 .then(dat => {
                                                     if (dat.error === true) {
-                                                        setDatosDomicilio([])
-                                                        mostrarAlerta(dat.error_message)
-                                                       
+                                                        setDatosDomicilio([])                                                       
+                                                        mostrarAlerta(dat.error_message)                                                      
                                                     }else{
+                                                        console.log(dat);
                                                         setMostrar(false)
+                                                        setCP(true)
                                                         setDatosDomicilio(dat)
                                                         setDatosPersonales({ ...datosPersonales, estado: dat[0].response.estado, alcaldia: dat[0].response.municipio })
                                                     }
