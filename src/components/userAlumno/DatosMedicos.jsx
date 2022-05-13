@@ -139,7 +139,7 @@ export const DatosMedicos = () => {
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1">Tipos de sangre</span>
-                                <input type="text" className="form-control" placeholder="Username" value={data.enfermedades} aria-label="Username" aria-describedby="basic-addon1" readOnly />
+                                <input type="text" className="form-control" placeholder="Username" value={data.tipoSangre} aria-label="Username" aria-describedby="basic-addon1" readOnly />
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1">Numero de seguro social</span>

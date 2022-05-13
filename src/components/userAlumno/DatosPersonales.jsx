@@ -25,7 +25,7 @@ export const DatosPersonales = () => {
         alcaldia: ""
     })
     const [datosDomicilio, setDatosDomicilio] = useState([])
-
+    const [mostrar,setMostrar] = useState(true)
     const [value, setValue] = useState("")
 
     const inputNumeroE = useRef(null)
@@ -102,7 +102,7 @@ export const DatosPersonales = () => {
             try {
                 /* setDatosPersonales({ ...datosPersonales, estado: datosDomicilio[0].response.estado, alcaldia: datosDomicilio[0].response.municipio })*/
 
-                const respuesta = await fetch(`http://127.0.0.1:8000/users/update-personal/${cookies.get('usuarioId')}/`,
+                const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/users/update-personal/${cookies.get('usuarioId')}/`,
                     {
                         method: 'PATCH',
                         headers: {
@@ -134,10 +134,10 @@ export const DatosPersonales = () => {
             }
 
         } else if (event.target.name === "numeroInterior") {
-            if (isNaN(event.target.value)) {
+            if (isNaN(event.target.value)||event.target.value==="") {
                 inputNumeroI.current.classList.add('inputIncorrecto')
                 setPermitir(false)
-            } else {
+            }else {
                 inputNumeroI.current.classList.remove('inputIncorrecto')
                 setPermitir(true)
             }
@@ -229,8 +229,9 @@ export const DatosPersonales = () => {
                                                     if (dat.error === true) {
                                                         setDatosDomicilio([])
                                                         mostrarAlerta(dat.error_message)
+                                                       
                                                     }else{
-                                                        console.log(dat);
+                                                        setMostrar(false)
                                                         setDatosDomicilio(dat)
                                                         setDatosPersonales({ ...datosPersonales, estado: dat[0].response.estado, alcaldia: dat[0].response.municipio })
                                                     }
@@ -258,7 +259,7 @@ export const DatosPersonales = () => {
                                     setValue(event.target.value)
                                     setDatosPersonales({ ...datosPersonales, colonia: event.target.value })
                                 }} className="form-select" aria-label="Default select example">
-                                    <option key={1} value={datosPersonales.colonia}>{datosPersonales.colonia}</option>
+                                    {mostrar?(<option key={1} value={datosPersonales.colonia}>{datosPersonales.colonia}</option>):(<></>)}
                                     {
                                         datosDomicilio.map((colonia, index) => {
                                             return (<option key={index} value={colonia.response.asentamiento} >{colonia.response.asentamiento} </option>)
@@ -283,7 +284,7 @@ export const DatosPersonales = () => {
 
                             <div ref={celular} className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1">Numero Telefonico 52+ </span>
-                                <input type="number" className="form-control" name='celular' value={datosPersonales.celular} onChange={handleChange} aria-label="Username" aria-describedby="basic-addon1" />
+                                <input type="tel" className="form-control" name='celular' value={datosPersonales.celular} onChange={handleChange} aria-label="Username" aria-describedby="basic-addon1" />
                             </div>
                         </div>
                         <button type="button" onClick={editar} className="btn btn-success">Guardar</button>

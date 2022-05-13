@@ -31,7 +31,6 @@ export const Calificaciones = () => {
     try {
       const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/students/enrolled-subjects?userID=${cookies.get('usuarioId')}`)
       const data = await respuesta.json()
-      console.log(data);
       setMaterias(data)
       setLoading(false)
     } catch (err) {
