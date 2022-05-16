@@ -139,15 +139,15 @@ export const DatosCuenta = () => {
                             <div className='mt-2 text-start ms-4 '><h1 className='border-bottom pb-3'>CAMBIAR CONTRASEÑA </h1></div>
 
                             <div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Contraseña actual</span>
+                                <span className="input-group-text" id="basic-addon1">Contraseña Actual</span>
                                 <input type="password" name={"contrasenia_actual"} value={datos.contrasenia_actual} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
                             </div>
                             <div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Contraseña nueva</span>
+                                <span className="input-group-text" id="basic-addon1">Contraseña Nueva</span>
                                 <input type="password" name={"contrasenia_nueva"} value={datos.contrasenia_nueva} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
                             </div>
                             <div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Contraseña nueva</span>
+                                <span className="input-group-text" id="basic-addon1">Contraseña Nueva</span>
                                 <input type="password" name={"contrasenia_nueva"} value={confirmar.confirmar} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
                             </div>
 
