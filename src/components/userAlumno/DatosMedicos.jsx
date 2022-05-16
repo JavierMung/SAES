@@ -123,7 +123,7 @@ export const DatosMedicos = () => {
                     </div>
                 </>) : (<>
                     <div className="card shadow-lg letra " >
-                        <div className='mt-3 text-start ms-4 border-bottom pb-2  '><h1>Datos Médicos </h1></div>
+                        <div className='mt-3 text-start ms-4 border-bottom pb-2  '><h1>DATOS MÉDICOS </h1></div>
                         <div className="card-body text-start ">
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1">Peso</span>
