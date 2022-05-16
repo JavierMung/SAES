@@ -80,13 +80,13 @@ export const Kardex = () => {
           <span className="visually-hidden">Loading...</span>
         </div></>) : (<>
           <div className='row bg-light shadow-lg ' >
-            <h1 className='text-start  align-self-center border-bottom p-3'>KARDEX </h1>
+            <h1 className='text-start  align-self-center border-bottom p-3'>KÁRDEX </h1>
             <div className=' col-lg-10 card text-start centrar  p-5 shadow-sm'>
               <div className='row'>
                 <div className='col-lg-5'>
                   <p> <span style={{ color: "black", fontWeight: "bolder" }}> Boleta: </span> {cookies.get("usuario")}</p>
                   <p> <span style={{ color: "black", fontWeight: "bolder" }}> Promedio global: </span> {promedio }</p>
-                  <p> <span style={{ color: "black", fontWeight: "bolder" }}> Carrera: </span> Ing. Sistemas Compuatcionales</p>
+                  <p> <span style={{ color: "black", fontWeight: "bolder" }}> Carrera: </span> Ing. Sistemas Computacionales</p>
                 </div>
 
               </div>
