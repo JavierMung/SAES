@@ -154,8 +154,8 @@ export const Menu = () => {
                         </h2>
                         <div id="flush-collapseFor" className="accordion-collapse collapse" aria-labelledby="flush-headingFor" data-bs-parent="#accordionFlushExample">
                             <div className="accordion-body">
-                                <NavLink style={navlink} className="nav-link text-dark active  text-light " to="/alumno/datosmedicos">Datos medicos </NavLink>
-                                <NavLink style={navlink} className="nav-link text-dark active  text-light " to="/alumno/datospersonales">Datos personales </NavLink>
+                                <NavLink style={navlink} className="nav-link text-dark active  text-light " to="/alumno/datosmedicos">Datos Médicos </NavLink>
+                                <NavLink style={navlink} className="nav-link text-dark active  text-light " to="/alumno/datospersonales">Datos Personales </NavLink>
                             </div>
                         </div>
                     </div>

@@ -123,7 +123,7 @@ export const DatosMedicos = () => {
                     </div>
                 </>) : (<>
                     <div className="card shadow-lg letra " >
-                        <div className='mt-3 text-start ms-4 border-bottom pb-2  '><h1>DATOS MEDICOS </h1></div>
+                        <div className='mt-3 text-start ms-4 border-bottom pb-2  '><h1>Datos Médicos </h1></div>
                         <div className="card-body text-start ">
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1">Peso</span>
@@ -134,15 +134,15 @@ export const DatosMedicos = () => {
                                 <input type="text" className="form-control" placeholder="Username" value={data.estatura} aria-label="Username" aria-describedby="basic-addon1" readOnly />
                             </div>
                             <div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Institución medica</span>
+                                <span className="input-group-text" id="basic-addon1">Institución Médica</span>
                                 <input type="text" className="form-control" placeholder="Username" value={data.institucionMedica} aria-label="Username" aria-describedby="basic-addon1" readOnly />
                             </div>
                             <div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Tipos de sangre</span>
+                                <span className="input-group-text" id="basic-addon1">Tipos de Sangre</span>
                                 <input type="text" className="form-control" placeholder="Username" value={data.tipoSangre} aria-label="Username" aria-describedby="basic-addon1" readOnly />
                             </div>
                             <div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Numero de seguro social</span>
+                                <span className="input-group-text" id="basic-addon1">Numero de Seguro Social</span>
                                 <input name='numeroSS' type="text" className="form-control" value={data.numeroSS} placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" readOnly />
                             </div>
                             <div className="input-group mb-3">
@@ -158,7 +158,7 @@ export const DatosMedicos = () => {
                                 <input name='enfermedades' type="text" className="form-control" placeholder="Username" value={data.enfermedades} aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
                             </div>
                             <div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Problemas fisicos</span>
+                                <span className="input-group-text" id="basic-addon1">Problemas Físicos</span>
                                 <input name='problemasFisicos' type="text" className="form-control" placeholder="Username" value={data.problemasFisicos} aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
                             </div>
                         </div>
