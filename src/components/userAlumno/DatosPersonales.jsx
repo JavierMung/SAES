@@ -31,6 +31,7 @@ export const DatosPersonales = () => {
     const inputNumeroE = useRef(null)
     const inputNumeroI = useRef(null)
     const codigoPostal = useRef(null)
+    const calle = useRef(null)
     const estado = useRef(null)
     const alcaldia = useRef(null)
     const celular = useRef(null)
@@ -49,7 +50,7 @@ export const DatosPersonales = () => {
     const verificarCampos = (err) => {
         Swal.fire({
             title: '¡Error!',
-            text: "por favor verifica los campos",
+            text: "Por favor verifica los campos",
             icon: 'error',
             confirmButtonText: 'aceptar',
             confirmButtonColor: "#00b894"
@@ -58,7 +59,7 @@ export const DatosPersonales = () => {
     const editadoExistosamente = (err) => {
         Swal.fire({
             title: '¡Hecho!',
-            text: "editado correctamente",
+            text: "Datos guardados con éxito",
             icon: 'success',
             confirmButtonText: 'aceptar',
             confirmButtonColor: "#00b894"
@@ -135,12 +136,19 @@ export const DatosPersonales = () => {
             }
 
         } else if (event.target.name === "numeroInterior") {
-            if (isNaN(event.target.value)||event.target.value==="") {
-                inputNumeroI.current.classList.add('inputIncorrecto')
-                setPermitir(false)
-            }else {
+          
+             if(event.target.value===""){
                 inputNumeroI.current.classList.remove('inputIncorrecto')
                 setPermitir(true)
+            }
+            else{
+                if (isNaN(event.target.value)) {
+                    inputNumeroI.current.classList.add('inputIncorrecto')
+                    setPermitir(false)
+                } else {
+                    inputNumeroI.current.classList.remove('inputIncorrecto')
+                    setPermitir(true)
+                }
             }
 
         } else if (event.target.name === "codigoPostal") {
@@ -167,6 +175,15 @@ export const DatosPersonales = () => {
             } else {
                 celular.current.classList.remove('inputIncorrecto')
                 setPermitir(true)
+            }
+        } else if(event.target.name === "calle"){
+            if(event.target.value===""){
+                calle.current.classList.add('inputIncorrecto')
+                setPermitir(false)
+            }
+            else{
+                calle.current.classList.remove('inputIncorrecto')
+                setPermitir(true) 
             }
         }
         setDatosPersonales({
@@ -253,7 +270,7 @@ export const DatosPersonales = () => {
                                 <input ref={estado} type="text" name='estado' className="form-control" value={datosPersonales.estado} aria-label="Username" aria-describedby="basic-addon1" disabled />
                             </div>
                             <div className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Alcaldia/Municipio</span>
+                                <span className="input-group-text" id="basic-addon1">Alcaldía/Municipio</span>
                                 <input ref={alcaldia} type="text" name='municipio' className="form-control" value={datosPersonales.alcaldia} aria-label="Username" aria-describedby="basic-addon1" disabled />
                             </div>
                             <div className="input-group mb-3">
@@ -286,7 +303,7 @@ export const DatosPersonales = () => {
                             </div>
 
                             <div ref={celular} className="input-group mb-3">
-                                <span className="input-group-text" id="basic-addon1">Numero Telefonico 52+ </span>
+                                <span className="input-group-text" id="basic-addon1">Número Telefónico 52+ </span>
                                 <input type="tel" className="form-control" name='celular' value={datosPersonales.celular} onChange={handleChange} aria-label="Username" aria-describedby="basic-addon1" />
                             </div>
                         </div>

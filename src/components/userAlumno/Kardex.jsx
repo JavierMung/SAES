@@ -73,7 +73,7 @@ export const Kardex = () => {
                 <div className='col-lg-5'>
                   <p> <span style={{ color: "black", fontWeight: "bolder" }}> Boleta: </span> {cookies.get("usuario")}</p>
                   <p> <span style={{ color: "black", fontWeight: "bolder" }}> Promedio global: </span> {promedio }</p>
-                  <p> <span style={{ color: "black", fontWeight: "bolder" }}> Carrera: </span> Ing. Sistemas Compuatcionales</p>
+                  <p> <span style={{ color: "black", fontWeight: "bolder" }}> Carrera: </span> Ing. Sistemas Computacionales</p>
                 </div>
 
               </div>

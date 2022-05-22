@@ -78,9 +78,9 @@ function CambiarContrasena() {
             <div className='col-lg-12  align-self-center '>
                 <div className="card shadow-lg  position-absolute top-50 start-50 translate-middle" >
                     <div className="card-body" style={{ width: "500px" }}>
-                        <p className="card-text">Contraseña nueva</p>
+                        <p className="card-text">Contraseña Nueva</p>
                         <input type="password" value={contrasena.password} className="form-control" name={"password"} onChange={handleChange} />
-                        <p className="card-text">Confirmar contraseña</p>
+                        <p className="card-text">Confirmar Contraseña</p>
                         <input type="password" value={verificar.verificar} className="form-control" name={"verificar"} onChange={Verificar} />
                         <p className="card-text">Token</p>
                         <input className="form-control" value={contrasena.token} name={"token"} onChange={handleChange} type={"text"} />

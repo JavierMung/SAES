@@ -88,10 +88,10 @@ export const Menu = () => {
 
                 </div>
                 <div className='col-sm-12 col-xl-12 text-end mt-3  '>
-                    <button data-bs-toggle="tooltip" data-bs-placement="top" title="cerrar sesion" type="button" onClick={cerrarSesion} className="btn btn-warning cerrarSesion">Cerrar Sesion <FontAwesomeIcon className='ms-2 mt-1 ' icon={faSignOut} /> </button>
+                    <button data-bs-toggle="tooltip" data-bs-placement="top" title="cerrar sesion" type="button" onClick={cerrarSesion} className="btn btn-warning cerrarSesion">Cerrar Sesión <FontAwesomeIcon className='ms-2 mt-1 ' icon={faSignOut} /> </button>
                 </div>
                 <div className='col-sm-12  text-end mt-3'>
-                    <NavLink style={navlink} className="nav-link cambio active text-light" to="/alumno/datosCuenta">cambiar contraseña </NavLink>
+                    <NavLink style={navlink} className="nav-link cambio active text-light" to="/alumno/datosCuenta">Cambiar Contraseña </NavLink>
                 </div>
             </div>
             <div className='row align-items-center m-0  acciones  shadow-lg  mt-3 letra' >
@@ -99,7 +99,7 @@ export const Menu = () => {
                     <div className="accordion-item " >
                         <h2 className="accordion-header" id="flush-headingOne">
                             <button className="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                Periodo actual
+                                Periodo Actual
                             </button>
                         </h2>
                         <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -138,31 +138,31 @@ export const Menu = () => {
                     <div className="accordion-item">
                         <h2 className="accordion-header" id="flush-headingThree">
                             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                Historial academico
+                                Historial Académico
                             </button>
                         </h2>
                         <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                            <div className="accordion-body"><NavLink style={navlink} className="nav-link text-dark active  text-light" to="/alumno/kardex">Kardex </NavLink>
+                            <div className="accordion-body"><NavLink style={navlink} className="nav-link text-dark active  text-light" to="/alumno/kardex">Kárdex </NavLink>
                             </div>
                         </div>
                     </div>
                     <div className="accordion-item">
                         <h2 className="accordion-header" id="flush-headingFor">
                             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFor" aria-expanded="false" aria-controls="flush-collapseFor">
-                                Datos generales
+                                Datos Generales
                             </button>
                         </h2>
                         <div id="flush-collapseFor" className="accordion-collapse collapse" aria-labelledby="flush-headingFor" data-bs-parent="#accordionFlushExample">
                             <div className="accordion-body">
-                                <NavLink style={navlink} className="nav-link text-dark active  text-light " to="/alumno/datosmedicos">Datos medicos </NavLink>
-                                <NavLink style={navlink} className="nav-link text-dark active  text-light " to="/alumno/datospersonales">Datos personales </NavLink>
+                                <NavLink style={navlink} className="nav-link text-dark active  text-light " to="/alumno/datosmedicos">Datos Médicos </NavLink>
+                                <NavLink style={navlink} className="nav-link text-dark active  text-light " to="/alumno/datospersonales">Datos Personales </NavLink>
                             </div>
                         </div>
                     </div>
                     <div className="accordion-item">
                         <h2 className="accordion-header" id="flush-headingFive">
                             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFor">
-                                Saberes adquiridos
+                                Saberes Adquiridos
                             </button>
                         </h2>
                         <div id="flush-collapseFive" className="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
