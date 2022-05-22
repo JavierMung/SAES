@@ -90,9 +90,7 @@ export const Menu = () => {
                 <div className='col-sm-12 col-xl-12 text-end mt-3  '>
                     <button data-bs-toggle="tooltip" data-bs-placement="top" title="cerrar sesion" type="button" onClick={cerrarSesion} className="btn btn-warning cerrarSesion">Cerrar Sesión <FontAwesomeIcon className='ms-2 mt-1 ' icon={faSignOut} /> </button>
                 </div>
-                <div className='col-sm-12  text-end mt-3'>
-                    <NavLink style={navlink} className="nav-link cambio active text-light" to="/alumno/datosCuenta">Cambiar Contraseña </NavLink>
-                </div>
+                
             </div>
             <div className='row align-items-center m-0  acciones  shadow-lg  mt-3 letra' >
                 <div className="accordion accordion-flush  " id="accordionFlushExample" >
@@ -170,6 +168,17 @@ export const Menu = () => {
                                 <NavLink style={navlink} className="nav-link text-dark active  text-light " to="/alumno/inscribirSaberes" >Inscribir </NavLink>
                                 <NavLink style={navlink} className="nav-link text-dark active  text-light " to="/alumno/calificacionesSaberes">Calificaciones </NavLink>
                             </div>
+                        </div>
+                    </div>
+                    <div className="accordion-item">
+                        <h2 className="accordion-header" id="flush-headingSix">
+                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseFor">
+                                Datos de la cuenta
+                            </button>
+                        </h2>
+                        <div id="flush-collapseSix" className="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                            <div className="accordion-body">
+                            <NavLink style={navlink} className="nav-link text-dark active  text-light" to="/alumno/datosCuenta">Cambiar Contraseña </NavLink>                            </div>
                         </div>
                     </div>
                     

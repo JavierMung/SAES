@@ -12,7 +12,7 @@ export const Kardex = () => {
   const [materias, setMaterias] = useState([]);
   const [sumar, setSuma] = useState([])
   const [calificacionesETS, setCalificaciones_ets] = useState([])
-  const [promedio,setPromedio] = useState(10)
+  const [promedio, setPromedio] = useState(10)
   const mostrarAlerta = (err) => {
     Swal.fire({
       title: '¡Error!',
@@ -35,19 +35,19 @@ export const Kardex = () => {
           .then(res => res.json())
           .then(data1 => {
             setCalificaciones_ets(data1)
-            
+
           })
 
         fetch(`https://saes-escom-app.herokuapp.com/students/career-info?userID=${cookies.get('usuarioId')}`)
           .then(res => res.json())
           .then(data => {
             setMaterias(data)
-            setPromedio(()=>{
-              let cal= 0
-              data.map(calificacion=>{
-                cal+=calificacion.calificacion_final
+            setPromedio(() => {
+              let cal = 0
+              data.map(calificacion => {
+                cal += calificacion.calificacion_final
               })
-              cal/=data.length
+              cal /= data.length
               return cal.toFixed(2)
             })
           })
@@ -64,15 +64,19 @@ export const Kardex = () => {
   }, [])
 
   return (
-    <div className='container-lg card shadow-lg letra '>     
-          <div className='row bg-light shadow-lg  ' >
-          {loading ? (<Loading/>) : (<>
+    <div className='container-lg card shadow-lg letra '>
+      <div className='row bg-light shadow-lg  ' >
+        {loading ? (
+          <div className='text-center'>
+            <Loading />
+          </div>) : (<>
+
             <h1 className='text-start  align-self-center border-bottom p-3'>KARDEX </h1>
             <div className=' col-lg-10 card text-start centrar  p-5 shadow-sm'>
               <div className='row'>
                 <div className='col-lg-5'>
                   <p> <span style={{ color: "black", fontWeight: "bolder" }}> Boleta: </span> {cookies.get("usuario")}</p>
-                  <p> <span style={{ color: "black", fontWeight: "bolder" }}> Promedio global: </span> {promedio }</p>
+                  <p> <span style={{ color: "black", fontWeight: "bolder" }}> Promedio global: </span> {promedio}</p>
                   <p> <span style={{ color: "black", fontWeight: "bolder" }}> Carrera: </span> Ing. Sistemas Computacionales</p>
                 </div>
 
@@ -130,8 +134,8 @@ export const Kardex = () => {
                       )
                     )*/
                     return (
-                      
-                                           
+
+
                       <tr key={index}>
                         <td>{element.claveMateriaEstudiante.idMateria}</td>
                         <td style={{ fontWeight: "bold" }}>{element.claveMateriaEstudiante.nombreMateria}</td>
@@ -154,7 +158,7 @@ export const Kardex = () => {
 
               <button type="button" className="btn btn-success">Imprimir</button>
             </div></>)}
-          </div>
+      </div>
 
     </div>
   )

@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import '../../style/estilo.css'
 import Cookies from "universal-cookie";
 import { useNavigate } from 'react-router-dom';
+import Loading from '../Loading';
 
 export const DatosCuenta = () => {
     const cookies = new Cookies()
@@ -16,6 +17,10 @@ export const DatosCuenta = () => {
         contrasenia_nueva: ""
 
     })
+
+    const [verificar,setVerificar] = useState({
+        verificar:""
+    })
     const mostrarAlerta = (err) => {
         Swal.fire({
           title: '¡Error!',
@@ -26,8 +31,7 @@ export const DatosCuenta = () => {
         })
       }
 
-    const [confirmar, setConfirmar] = useState(
-        {confirmar:""})
+   
 
     useEffect(() => {
         if (!cookies.get('token')) {
@@ -88,6 +92,10 @@ export const DatosCuenta = () => {
 
     }
 
+    const Verificar =(event)=>{
+        setVerificar({...verificar, verificar:event.target.value})
+    }
+
     useEffect(()=>{
         if (!cookies.get('token')) {
             navigate('/');
@@ -95,7 +103,7 @@ export const DatosCuenta = () => {
     },[])
 
     const editar = async () => {
-        if(confirmar.confirmar===datos.contrasenia_nueva){
+        if(verificar.verificar===datos.contrasenia_nueva){
             try {
                 const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/users/modify-password/`, {
                     method: 'POST',
@@ -121,17 +129,8 @@ export const DatosCuenta = () => {
             <div className='col-10 align mt-2'>
 
                 {loading ? (<>
-                    <div className="spinner-grow text-primary" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div>
-                    <div className="spinner-grow text-secondary" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div>
-                    <div className="spinner-grow text-success" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div>
-                    <div className="spinner-grow text-danger" role="status">
-                        <span className="visually-hidden">Loading...</span>
+                    <div className='text-center'>
+                        <Loading/>
                     </div>
                 </>) : (<>
                     <div className="card shadow-lg letra" >
@@ -148,7 +147,7 @@ export const DatosCuenta = () => {
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1">Contraseña Nueva</span>
-                                <input type="password" name={"contrasenia_nueva"} value={confirmar.confirmar} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
+                                <input type="password" name={"verificar"} value={verificar.verificar} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={Verificar} />
                             </div>
 
                         </div>

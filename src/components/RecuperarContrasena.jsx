@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import '../style/estilo.css'
 import { Navigate, NavLink } from "react-router-dom";
-
+import Loading from "./Loading"
 export const RecuperarContrasena = () => {
     const [datos, setDatos] = useState({
         email: "",
@@ -109,11 +109,12 @@ export const RecuperarContrasena = () => {
                                     : (<></>)}
                             </div>
                         </div>
-                        <div className='col-8'>
+                        <div className='col-12'>
                             {loading ? (<>
-                                <div className="spinner-grow text-primary m-1 centrar" role="status">
-                                    <span className="visually-hidden ">Loading...</span>
-                                </div>
+                            <div className='text-center'>
+
+                               <Loading/>
+                            </div>
 
                             </>) : (<></>)}
                         </div>
