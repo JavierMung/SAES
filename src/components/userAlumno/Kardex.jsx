@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import '../../style/estilo.css'
-import LineChart from '../../Graficos/Lineas'
-import Donut from '../../Graficos/Donut'
-import DonutKardex from '../../Graficos/DonutKardex'
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../Loading'
 export const Kardex = () => {
   const navigate = useNavigate();
   const cookies = new Cookies();
@@ -66,20 +64,9 @@ export const Kardex = () => {
   }, [])
 
   return (
-    <div className='container-lg card shadow-lg letra'>
-      {loading ? (<><div className="spinner-grow text-primary" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-        <div className="spinner-grow text-secondary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-        <div className="spinner-grow text-success" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-        <div className="spinner-grow text-danger" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div></>) : (<>
-          <div className='row bg-light shadow-lg ' >
+    <div className='container-lg card shadow-lg letra '>     
+          <div className='row bg-light shadow-lg  ' >
+          {loading ? (<Loading/>) : (<>
             <h1 className='text-start  align-self-center border-bottom p-3'>KARDEX </h1>
             <div className=' col-lg-10 card text-start centrar  p-5 shadow-sm'>
               <div className='row'>
@@ -166,8 +153,8 @@ export const Kardex = () => {
             <div className=' text-end p-3'>
 
               <button type="button" className="btn btn-success">Imprimir</button>
-            </div>
-          </div></>)}
+            </div></>)}
+          </div>
 
     </div>
   )

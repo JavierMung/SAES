@@ -220,7 +220,14 @@ ul>li:active {
   display: flex;
   justify-content: center;
 }
-
+.ocontrasena{
+  color: #060e08;
+  list-style: none;
+  text-decoration: none;
+}
+.ocontrasena:hover{
+  color: #0d5bc9;
+}
 .select_ets {
   margin-left: 10px;
   margin-right: 10px;

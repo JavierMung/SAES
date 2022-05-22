@@ -3,7 +3,10 @@ import { useRef, useState, useEffect } from 'react';
 import '../style/estilo.css'
 import Select from 'react-select'
 import Cookies from "universal-cookie";
-import { Navigate,NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
+import Loading from "./Loading";
+
+
 const cookies = new Cookies()
 function App() {
   const Swal = require('sweetalert2')
@@ -115,6 +118,8 @@ function App() {
 
 
           if (!dat.token) {
+            inputUser.current.classList.add('inputIncorrecto')
+            inputPassword.current.classList.add('inputIncorrecto')
             mostrarAlerta(dat.error)
             setLoading(false)
 
@@ -129,7 +134,6 @@ function App() {
         } catch (err) {
           mostrarAlerta(err);
           setLoading(false)
-
         }
 
       }
@@ -161,7 +165,6 @@ function App() {
 
   return (
     <div className="App container "  >
-
       <div className="row align-items-center caja p-3 ">
         <div className="col-sm-8  col-lg-8 offset-lg-2  offset-sm-2  transparente">
           <div className="row align-items-center">
@@ -175,8 +178,8 @@ function App() {
                 <div className="col-12 text-center mb-3 ">ESCOM | <span>IPN</span></div>
               </div>
 
+    <form onSubmit={ingresar}>
               <div className="row p-4 letra justify-content-center">
-
 
 
                 <div className="col-6 mb-2  align-self-center  ">
@@ -195,14 +198,25 @@ function App() {
                 </div>
                 <div className="col-12 mb-2">
                 </div>
-                <div className="col-sm-6 mt-3">
-                  <div className="input-group mb-3 centrar ">
+                <div className="col-sm-6 mt-3  align-items-center">
+                  <div className="input-group mb-3 centrar align-middle pt-4">
                     <Select ref={inputOpciones} placeholder={"seleccionar..."} className=" w-100" options={options} value={value} onChange={eleccion} />
                   </div>
                 </div>
 
                 <div className="col-6 text-end mt-3">
+                  <div className="centrar">
+                    <ReCAPTCHA
+                      ref={captcha}
+                      sitekey="6LeEwNYeAAAAAF1T58YYDkAfH1khSkTx4mJ3qKlr"
+                      onChange={onChange}
+                    />
+                  </div>
+                </div>
+                <div className="col-6 p-1  align-self-center  text-center mt-5">
                   <button type="button" className="btn btn-primary" onClick={ingresar}>Iniciar Sesion</button>
+
+                </div>
                   {iniciarSesion ?
                     (
                       value.value === "1" ?
@@ -212,32 +226,19 @@ function App() {
                           : (<></>))
 
                     ) : (<></>)}
-                </div>
-                <div className="col-6 p-1  align-self-center">
-                  <div className="centrar ">
-                    <ReCAPTCHA
-                      ref={captcha}
-                      sitekey="6LeEwNYeAAAAAF1T58YYDkAfH1khSkTx4mJ3qKlr"
-                      onChange={onChange}
-                    />
-                  </div>
-                </div>
 
                 <div className="col-12 p-1 align-self-center text-center mt-1">
 
-                  {loading ? (<>
-                    <div className="spinner-grow text-primary m-1" role="status">
-                      <span className="visually-hidden ">Loading...</span>
-                    </div>
-
-                  </>) : (<></>)}
+                  {loading ? (<Loading />) : (<></>)}
 
                 </div>
 
-                <div className="col-12 p-2 text-start mt-4">
-                  <NavLink  className="nav-link text-dark active text-light " to="/recuperarContrasena">¿olvidaste tu contraseña? </NavLink>
+                <div className="col-12 p-2 text-start mt-4 ocontrasena">
+
+                  <NavLink className="ocontrasena" to="/recuperarContrasena">¿olvidaste tu contraseña? </NavLink>
                 </div>
               </div>
+                </form>
             </div>
           </div>
         </div>

@@ -224,8 +224,7 @@ export const DatosPersonales = () => {
                                 <span className="input-group-text" id="basic-addon1">CP</span>
                                 <input type="text" name='codigoPostal' className="form-control" value={datosPersonales.codigoPostal} onChange={handleChange} aria-label="Username" aria-describedby="basic-addon1" />
                                 <button className='btn btn-primary' onClick={() => {
-                                    if (permitir) {
-                                      
+                                    if (permitir) {                     
                                             fetch(`https://api.copomex.com/query/info_cp/${encodeURI(datosPersonales.codigoPostal)}?token=db62aefa-a4ad-4090-8b3b-e252b817981a`)
                                                 .then(res => res.json())
                                                 .then(dat => {

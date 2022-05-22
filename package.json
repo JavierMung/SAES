@@ -1,7 +1,7 @@
 {
   "name": "saes",
   "version": "0.1.0",
-  "homepages":"https://JavierMung.github.io/SAES",
+  "homepages": "https://JavierMung.github.io/SAES",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.3.0",
@@ -21,13 +21,14 @@
     "react-router-dom": "^6.2.2",
     "react-scripts": "^5.0.1",
     "react-select": "^5.2.2",
+    "stream-browserify": "^3.0.0",
     "sweetalert2": "^11.4.8",
     "universal-cookie": "^4.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
