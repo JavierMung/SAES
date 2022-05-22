@@ -8,7 +8,8 @@ export const DatosCuenta = () => {
     const cookies = new Cookies()
     const Swal = require('sweetalert2')
     const navigate = useNavigate();
-
+    const inputNueva = useRef(null)
+    const inputVerificar = useRef(null)
     const [loading, setLoading] = useState(true)
     const [datos, setDatos] = useState({
 
@@ -18,20 +19,20 @@ export const DatosCuenta = () => {
 
     })
 
-    const [verificar,setVerificar] = useState({
-        verificar:""
+    const [verificar, setVerificar] = useState({
+        verificar: ""
     })
     const mostrarAlerta = (err) => {
         Swal.fire({
-          title: '¡Error!',
-          text: err,
-          icon: 'error',
-          confirmButtonText: 'aceptar',
-          confirmButtonColor: "#00b894" 
+            title: '¡Error!',
+            text: err,
+            icon: 'error',
+            confirmButtonText: 'aceptar',
+            confirmButtonColor: "#00b894"
         })
-      }
+    }
 
-   
+
 
     useEffect(() => {
         if (!cookies.get('token')) {
@@ -42,6 +43,7 @@ export const DatosCuenta = () => {
         }
     }, [])
 
+ 
     const error = (err) => {
         Swal.fire({
             title: '!Error!',
@@ -92,18 +94,25 @@ export const DatosCuenta = () => {
 
     }
 
-    const Verificar =(event)=>{
-        setVerificar({...verificar, verificar:event.target.value})
+    const Verificar = (event) => {
+
+        setVerificar({ ...verificar, verificar: event.target.value })
+        
+
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         if (!cookies.get('token')) {
             navigate('/');
         }
-    },[])
+    }, [])
 
     const editar = async () => {
-        if(verificar.verificar===datos.contrasenia_nueva){
+        if (verificar.verificar === datos.contrasenia_nueva) {
+                inputNueva.current.classList.remove('inputIncorrecto')
+                inputVerificar.current.classList.remove('inputIncorrecto')
+                inputNueva.current.classList.add('inputCorrecto')
+                inputVerificar.current.classList.add('inputCorrecto')
             try {
                 const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/users/modify-password/`, {
                     method: 'POST',
@@ -119,9 +128,17 @@ export const DatosCuenta = () => {
             } catch (err) {
                 error(err)
             }
-        }else{
+        } else {
+         
+                
+          
+                inputNueva.current.classList.add('inputIncorrecto')
+                inputVerificar.current.classList.add('inputIncorrecto')
+                inputNueva.current.classList.remove('inputCorrecto')
+                inputVerificar.current.classList.remove('inputCorrecto')
+            
             mostrarAlerta("La contraseña no es la misma")
-        }      
+        }
     }
 
     return (<>
@@ -130,7 +147,7 @@ export const DatosCuenta = () => {
 
                 {loading ? (<>
                     <div className='text-center'>
-                        <Loading/>
+                        <Loading />
                     </div>
                 </>) : (<>
                     <div className="card shadow-lg letra" >
@@ -143,11 +160,11 @@ export const DatosCuenta = () => {
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1">Contraseña Nueva</span>
-                                <input type="password" name={"contrasenia_nueva"} value={datos.contrasenia_nueva} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
+                                <input ref={inputNueva} type="password" name={"contrasenia_nueva"} value={datos.contrasenia_nueva} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1">Contraseña Nueva</span>
-                                <input type="password" name={"verificar"} value={verificar.verificar} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={Verificar} />
+                                <input ref={inputVerificar} type="password" name={"verificar"} value={verificar.verificar} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={Verificar} />
                             </div>
 
                         </div>
