@@ -50,14 +50,14 @@ export const CalificacionesSaberes = () => {
                         <div className="card-body">
                             <div className="card-text">
                                 <div className='table-responsive'>
-                                    <h4 className='p-2'>Calificaciones de tus examenes</h4>
+                                    <h4 className='p-2'>Calificaciones de tus exámenes</h4>
                                     <table className="table   table-hover text-dark">
                                         <thead className='tablasColor'>
 
                                             <tr>
                                                 
                                                 <th scope="MateriaSaberes">Materia</th>                                  
-                                                <th scope="">Calificacion</th>
+                                                <th scope="">Calificación</th>
                                                 <th scope="SinodalSaberes">Sinodal</th>
                                             </tr>
                                         </thead>

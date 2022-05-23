@@ -169,7 +169,7 @@ export const InscribirETS = () => {
             <h1 className="card-title text-start border-bottom pb-3 ">INSCRIBIR ETS </h1>
             <div className='container-lg text-dark  rounded  '>
 
-              <h4 className='pt-2 letra' >Inscribe tus examenes</h4>
+              <h4 className='pt-2 letra' >Inscribe tus exámenes</h4>
               <div style={{ backgroundColor: "transparent", height: "30vh", overflowY: "scroll" }}>
                 <table className="table  rounded shadow-sm letra">
                   <thead className='tablasColor' style={{ position: "sticky", top: "0" }}>
@@ -204,7 +204,7 @@ export const InscribirETS = () => {
 
 
             <div className='container-lg p-4 '>
-              <h4 className='text-dark pt-2 letra'>Resumen de examenes inscritos</h4>
+              <h4 className='text-dark pt-2 letra'>Resumen de exámenes inscritos</h4>
               <div className='shadow-sm' style={{ backgroundColor: "transparent", height: "30vh", overflowY: "scroll" }} >
                 <table className="table table-hover">
                   <thead className='tablasColor'>
