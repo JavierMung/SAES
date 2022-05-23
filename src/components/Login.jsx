@@ -235,7 +235,7 @@ function App() {
 
                 <div className="col-12 p-2 text-start mt-4 ocontrasena">
 
-                  <NavLink className="ocontrasena" to="/recuperarContrasena">¿olvidaste tu contraseña? </NavLink>
+                  <NavLink className="ocontrasena" to="/recuperarContrasena">¿Olvidaste tu contraseña? </NavLink>
                 </div>
               </div>
                 </form>
