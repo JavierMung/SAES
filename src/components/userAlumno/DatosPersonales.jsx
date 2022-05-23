@@ -289,9 +289,9 @@ export const DatosPersonales = () => {
 
                                 </select>
                             </div>
-                            <div className="input-group mb-3">
+                            <div ref={calle} className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1">Calle</span>
-                                <input type="text" name='calle' className="form-control" value={datosPersonales.calle} onChange={handleChange} aria-label="Username" aria-describedby="basic-addon1" />
+                                <input  type="text" name='calle' className="form-control" value={datosPersonales.calle} onChange={handleChange} aria-label="Username" aria-describedby="basic-addon1" />
                             </div>
                             <div ref={inputNumeroE} className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1">N° Exterior</span>
