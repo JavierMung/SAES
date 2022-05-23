@@ -9,6 +9,8 @@ export const DatosCuenta = () => {
     const Swal = require('sweetalert2')
     const navigate = useNavigate();
     const inputNueva = useRef(null)
+    const inputActual = useRef(null)
+
     const inputVerificar = useRef(null)
     const [loading, setLoading] = useState(true)
     const [datos, setDatos] = useState({
@@ -19,6 +21,7 @@ export const DatosCuenta = () => {
 
     })
 
+    
     const [verificar, setVerificar] = useState({
         verificar: ""
     })
@@ -68,7 +71,7 @@ export const DatosCuenta = () => {
         Swal.fire({
             title: '¿Seguro que desea cambiar la contraseña?',
             showDenyButton: true,
-            confirmButtonText: 'Si',
+            confirmButtonText: 'Aceptar',
             confirmButtonColor: "#00b894",
             denyButtonText: `Cancelar`,
         }).then((result) => {
@@ -86,18 +89,19 @@ export const DatosCuenta = () => {
         })
     }
     const handleChange = (event) => {
-
-        setDatos({
-            ...datos,
-            [event.target.name]: event.target.value,
-        });
+        if(event.target.value!==" "){
+            setDatos({
+                ...datos,
+                [event.target.name]: event.target.value,
+            });
+        }
 
     }
 
     const Verificar = (event) => {
-
+        if(event.target.value!==" "){
         setVerificar({ ...verificar, verificar: event.target.value })
-        
+        }
 
     }
 
@@ -108,27 +112,42 @@ export const DatosCuenta = () => {
     }, [])
 
     const editar = async () => {
-        if (verificar.verificar === datos.contrasenia_nueva) {
-                inputNueva.current.classList.remove('inputIncorrecto')
-                inputVerificar.current.classList.remove('inputIncorrecto')
-                inputNueva.current.classList.add('inputCorrecto')
-                inputVerificar.current.classList.add('inputCorrecto')
-            try {
-                const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/users/modify-password/`, {
-                    method: 'POST',
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(datos)
-                })
-                if (respuesta.status !== 200) {
-                    error(respuesta.statusText)
-                } else exito();
-
-            } catch (err) {
-                error(err)
+        if (verificar.verificar==="" || datos.contrasenia_nueva=== "" || datos.contrasenia_actual==="") {
+            
+            error("Llena todos los campos")
+            if(verificar.verificar===""){
+                inputVerificar.current.classList.add('inputIncorrecto')
             }
-        } else {
+            if(datos.contrasenia_nueva=== ""){
+                inputNueva.current.classList.add('inputIncorrecto')
+            }
+            if(datos.contrasenia_actual===""){
+                inputActual.current.classList.add('inputIncorrecto')
+            }
+        }else if( verificar.verificar === datos.contrasenia_nueva ){
+            inputNueva.current.classList.remove('inputIncorrecto')
+            inputVerificar.current.classList.remove('inputIncorrecto')
+            inputNueva.current.classList.add('inputCorrecto')
+            inputVerificar.current.classList.add('inputCorrecto')
+        try {
+            const respuesta = await fetch(`https://saes-escom-app.herokuapp.com/users/modify-password/`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(datos)
+            })
+            if (respuesta.status !== 200) {
+                error("Verificar contraseña")
+                inputActual.current.classList.remove('inputCorrecto')
+                inputActual.current.classList.add('inputIncorrecto')
+            } else exito();
+
+        } catch (err) {
+            error(err)
+        }
+        }
+         else {
          
                 
           
@@ -156,7 +175,7 @@ export const DatosCuenta = () => {
 
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1">Contraseña Actual</span>
-                                <input type="password" name={"contrasenia_actual"} value={datos.contrasenia_actual} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
+                                <input ref={inputActual} type="password" name={"contrasenia_actual"} value={datos.contrasenia_actual} className="form-control" aria-label="Username" aria-describedby="basic-addon1" onChange={handleChange} />
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text" id="basic-addon1">Contraseña Nueva</span>
