@@ -60,7 +60,7 @@ export const DatosCuenta = () => {
 
     const exito = () => {
         Swal.fire({
-            title: '!Exito!',
+            title: '!Éxito!',
             text: "Contraseña cambiada correctamente",
             icon: 'success',
             confirmButtonText: 'Aceptar',

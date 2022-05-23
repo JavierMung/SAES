@@ -27,7 +27,7 @@ export const InscribirSaberes = () => {
       title: '!Error!',
       text: err,
       icon: 'warning',
-      confirmButtonText: 'aceptar',
+      confirmButtonText: 'Aceptar',
       confirmButtonColor: "#00b894"
     })
   }
@@ -37,24 +37,24 @@ export const InscribirSaberes = () => {
       title: '!Error!',
       text: "Materia ya inscrita",
       icon: 'warning',
-      confirmButtonText: 'aceptar',
+      confirmButtonText: 'Aceptar',
       confirmButtonColor: "#00b894"
     })
   }
   const exito = () => {
     Swal.fire({
-      title: '!Exito!',
-      text: "ETS INSCRITO CORRECTAMENTE",
+      title: '!Éxito!',
+      text: "Inscrito correctamente",
       icon: 'success',
-      confirmButtonText: 'aceptar',
+      confirmButtonText: 'Aceptar',
       confirmButtonColor: "#00b894"
     })
   }
   const terminarAlerta = () => {
     Swal.fire({
-      title: '¿Deseas terminar el proceso de inscripcion?',
+      title: '¿Deseas terminar el proceso de inscripción?',
       showDenyButton: true,
-      confirmButtonText: 'aceptar',
+      confirmButtonText: 'Aceptar',
       confirmButtonColor: "#00b894",
       denyButtonText: `Cancelar`,
     }).then((result) => {
@@ -63,10 +63,10 @@ export const InscribirSaberes = () => {
         terminarProceso()
       } else if (result.isDenied) {
         Swal.fire({
-          title: '!Info!',
+          title: '!Hecho!',
           text: "Los cambios no fueron guardados",
           icon: 'warning',
-          confirmButtonText: 'aceptar',
+          confirmButtonText: 'Aceptar',
           confirmButtonColor: "#00b894"
         })
       }
@@ -257,7 +257,7 @@ export const InscribirSaberes = () => {
                   </div>
 
                   <div className=' text-end'>
-                    <button type="button " onClick={terminarAlerta} className="btn btn-danger me-3" disabled={habilitado}>Finalizar inscripcion</button>
+                    <button type="button " onClick={terminarAlerta} className="btn btn-danger me-3" disabled={habilitado}>Finalizar inscripción</button>
                     <button type="button" className="btn btn-success">Imprimir</button></div>
                 </div>
               </div>
