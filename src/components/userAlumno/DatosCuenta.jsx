@@ -138,7 +138,7 @@ export const DatosCuenta = () => {
                 body: JSON.stringify(datos)
             })
             if (respuesta.status !== 200) {
-                error("Verificar contraseña")
+                error("Contraseña invalida")
                 inputActual.current.classList.remove('inputCorrecto')
                 inputActual.current.classList.add('inputIncorrecto')
             } else exito();
