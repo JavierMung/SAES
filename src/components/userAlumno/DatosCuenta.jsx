@@ -30,7 +30,7 @@ export const DatosCuenta = () => {
             title: '¡Error!',
             text: err,
             icon: 'error',
-            confirmButtonText: 'aceptar',
+            confirmButtonText: 'Aceptar',
             confirmButtonColor: "#00b894"
         })
     }
@@ -52,7 +52,7 @@ export const DatosCuenta = () => {
             title: '!Error!',
             text: err,
             icon: 'warning',
-            confirmButtonText: 'aceptar',
+            confirmButtonText: 'Aceptar',
             confirmButtonColor: "#00b894"
         })
     }
@@ -63,7 +63,7 @@ export const DatosCuenta = () => {
             title: '!Exito!',
             text: "Contraseña cambiada correctamente",
             icon: 'success',
-            confirmButtonText: 'aceptar',
+            confirmButtonText: 'Aceptar',
             confirmButtonColor: "#00b894"
         })
     }
@@ -79,10 +79,10 @@ export const DatosCuenta = () => {
                 editar()
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: '!Info!',
-                    text: "Los cambios no fueron guardados",
+                    title: '!Hecho!',
+                    text: "Hecho, los cambios no fueron guardados",
                     icon: 'warning',
-                    confirmButtonText: 'aceptar',
+                    confirmButtonText: 'Aceptar',
                     confirmButtonColor: "#00b894"
                 })
             }

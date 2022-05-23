@@ -18,7 +18,7 @@ function CambiarContrasena() {
             title: '¡Error!',
             text: err,
             icon: 'error',
-            confirmButtonText: 'aceptar',
+            confirmButtonText: 'Aceptar',
             confirmButtonColor: "#00b894"
         })
     }
@@ -27,7 +27,7 @@ function CambiarContrasena() {
             title: '¡Hecho!',
             text: "La contraseña se cambio exitosamente",
             icon: 'success',
-            confirmButtonText: 'aceptar',
+            confirmButtonText: 'Aceptar',
             confirmButtonColor: "#00b894"
         })
     }
