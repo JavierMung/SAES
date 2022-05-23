@@ -80,7 +80,7 @@ export const DatosCuenta = () => {
             } else if (result.isDenied) {
                 Swal.fire({
                     title: '!Hecho!',
-                    text: "Hecho, los cambios no fueron guardados",
+                    text: "Los cambios no fueron guardados",
                     icon: 'warning',
                     confirmButtonText: 'Aceptar',
                     confirmButtonColor: "#00b894"

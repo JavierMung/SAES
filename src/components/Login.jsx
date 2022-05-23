@@ -214,7 +214,7 @@ function App() {
                   </div>
                 </div>
                 <div className="col-6 p-1  align-self-center  text-center mt-5">
-                  <button type="button" className="btn btn-primary" onClick={ingresar}>Iniciar Sesion</button>
+                  <button type="button" className="btn btn-primary" onClick={ingresar}>Iniciar Sesión</button>
 
                 </div>
                   {iniciarSesion ?
