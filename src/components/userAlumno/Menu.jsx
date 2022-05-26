@@ -33,7 +33,7 @@ export const Menu = () => {
 
     const mostrarAlerta = () => {
         Swal.fire({
-            title: '!Sesión cerrada!',
+            title: '¡Sesión cerrada!',
             text: "presiona para continuar",
             icon: 'success',
             confirmButtonText: 'aceptar',
@@ -43,7 +43,7 @@ export const Menu = () => {
 
     const mostrarError = (err) => {
         Swal.fire({
-            title: '!Algo anda mal :c!',
+            title: '¡Algo anda mal :c!',
             text: err,
             icon: 'failed',
             confirmButtonText: 'aceptar',

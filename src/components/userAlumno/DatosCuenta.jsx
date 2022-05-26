@@ -49,7 +49,7 @@ export const DatosCuenta = () => {
  
     const error = (err) => {
         Swal.fire({
-            title: '!Error!',
+            title: '¡Error!',
             text: err,
             icon: 'warning',
             confirmButtonText: 'Aceptar',
@@ -60,7 +60,7 @@ export const DatosCuenta = () => {
 
     const exito = () => {
         Swal.fire({
-            title: '!Éxito!',
+            title: '¡Éxito!',
             text: "Contraseña cambiada correctamente",
             icon: 'success',
             confirmButtonText: 'Aceptar',
@@ -79,7 +79,7 @@ export const DatosCuenta = () => {
                 editar()
             } else if (result.isDenied) {
                 Swal.fire({
-                    title: '!Hecho!',
+                    title: '¡Hecho!',
                     text: "Los cambios no fueron guardados",
                     icon: 'warning',
                     confirmButtonText: 'Aceptar',

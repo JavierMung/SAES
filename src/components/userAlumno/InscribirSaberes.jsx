@@ -24,7 +24,7 @@ export const InscribirSaberes = () => {
   const [regresar, setRegresar] = useState(false)
   const error = (err) => {
     Swal.fire({
-      title: '!Error!',
+      title: '¡Error!',
       text: err,
       icon: 'warning',
       confirmButtonText: 'Aceptar',
@@ -34,7 +34,7 @@ export const InscribirSaberes = () => {
 
   const mostrarAlerta = () => {
     Swal.fire({
-      title: '!Error!',
+      title: '¡Error!',
       text: "Materia ya inscrita",
       icon: 'warning',
       confirmButtonText: 'Aceptar',
@@ -43,7 +43,7 @@ export const InscribirSaberes = () => {
   }
   const exito = () => {
     Swal.fire({
-      title: '!Éxito!',
+      title: '¡Éxito!',
       text: "Inscrito correctamente",
       icon: 'success',
       confirmButtonText: 'Aceptar',
@@ -63,7 +63,7 @@ export const InscribirSaberes = () => {
         terminarProceso()
       } else if (result.isDenied) {
         Swal.fire({
-          title: '!Hecho!',
+          title: '¡Hecho!',
           text: "Los cambios no fueron guardados",
           icon: 'warning',
           confirmButtonText: 'Aceptar',

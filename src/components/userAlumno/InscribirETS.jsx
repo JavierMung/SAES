@@ -24,7 +24,7 @@ export const InscribirETS = () => {
   const [fecha, setFecha] = useState(new Date)
   const error = (err) => {
     Swal.fire({
-      title: '!Error!',
+      title: '¡Error!',
       text: err,
       icon: 'warning',
       confirmButtonText: 'aceptar',
@@ -34,7 +34,7 @@ export const InscribirETS = () => {
 
   const mostrarAlerta = () => {
     Swal.fire({
-      title: '!Error!',
+      title: '¡Error!',
       text: "Materia ya inscrita",
       icon: 'warning',
       confirmButtonText: 'aceptar',
@@ -43,7 +43,7 @@ export const InscribirETS = () => {
   }
   const exito = () => {
     Swal.fire({
-      title: '!Éxito!',
+      title: '¡Éxito!',
       text: "Inscrito correctamente",
       icon: 'success',
       confirmButtonText: 'aceptar',
@@ -63,7 +63,7 @@ export const InscribirETS = () => {
         terminarProceso()
       } else if (result.isDenied) {
         Swal.fire({
-          title: '!Hecho!',
+          title: '¡Hecho!',
           text: "Los cambios no fueron guardados",
           icon: 'warning',
           confirmButtonText: 'aceptar',
